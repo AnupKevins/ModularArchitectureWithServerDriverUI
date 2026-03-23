@@ -10,11 +10,10 @@ import CoreModule
 public enum HomeFeature {
     
     public static func makeCoordinator(
-        apiClient: APIClient,
-        router: AppRouter<AppRoute>
+        apiClient: APIClient
     ) -> HomeCoordinator {
         
-        let builder = HomeFeatureBuilderImpl(apiClient: apiClient, appRouter: router)
+        let builder = HomeFeatureBuilderImpl(apiClient: apiClient)
         return HomeCoordinatorImpl(homeBuilder: builder)
         
     }

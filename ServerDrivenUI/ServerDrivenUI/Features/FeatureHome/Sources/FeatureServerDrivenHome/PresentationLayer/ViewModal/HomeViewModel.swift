@@ -23,15 +23,10 @@ protocol HomeViewModel {
     var isLoading: Bool = false
     
     private let useCase: FetchHomeUseCase
-   // private let router: AppRouter
     
     init(useCase: FetchHomeUseCase) {
         self.useCase = useCase
     }
-    
-//    func navigateToProducts() {
-//        router.navigateToProducts()
-//    }
     
     func fetchHomeComponents() async {
         

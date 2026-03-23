@@ -12,11 +12,12 @@ import CoreModule
 struct HomeView<ViewModel: HomeViewModel>: View {
     
     @State private var viewModel: ViewModel
-    private let router: AppRouter<AppRoute>
     
-    init(viewModel: ViewModel, router: AppRouter<AppRoute>) {
+    @Environment(AppRouter<AppRoute>.self)
+    private var router
+    
+    init(viewModel: ViewModel) {
         self._viewModel = State(wrappedValue: viewModel)
-        self.router = router
     }
     
     public var body: some View {

@@ -26,8 +26,7 @@ final class AppDependency {
     }
     // The DependencyContainer should only hold long-lived infrastructure dependencies, not feature objects.
     lazy var homeCoordinator: HomeCoordinator = HomeFeature.makeCoordinator(
-        apiClient: apiClient,
-        router: router
+        apiClient: apiClient
     )
     
     lazy var productCoordinator: ProductCoordinator = ProductFeature.makeCoordinator(

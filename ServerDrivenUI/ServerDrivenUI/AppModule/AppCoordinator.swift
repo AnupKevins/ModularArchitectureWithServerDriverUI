@@ -17,6 +17,7 @@ protocol AppCoordinator {
 
 final class AppCoordinatorImpl: AppCoordinator {
     
+    // Use Dictionary to reduce the TC from for loop O(n) to O(1)
     private let resolvers: [AppRoute: Resolver]
     init(
         resolvers: [AppRoute: Resolver]
@@ -27,12 +28,9 @@ final class AppCoordinatorImpl: AppCoordinator {
     }
     
     func start(route: AppRoute) -> AnyView {
-        print("@@@ route: \(route)")
         
         if let resolver = resolvers[route] {
-            print("@@@ Resolver: \(resolver)")
             if let view = resolver.resolve(route: route) {
-                print("@@@ view: \(view)")
                 return view
             }
         }

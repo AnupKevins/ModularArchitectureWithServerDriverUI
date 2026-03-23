@@ -15,11 +15,9 @@ protocol HomeFeatureBuilder {
 
 final class HomeFeatureBuilderImpl: HomeFeatureBuilder {
     private let apiClient: APIClient
-    private let appRouter: AppRouter<AppRoute>
     
-    init(apiClient: APIClient, appRouter: AppRouter<AppRoute>) {
+    init(apiClient: APIClient) {
         self.apiClient = apiClient
-        self.appRouter = appRouter
     }
     
     @MainActor func makeHome() -> AnyView {
@@ -30,7 +28,7 @@ final class HomeFeatureBuilderImpl: HomeFeatureBuilder {
         
         let viewModel = HomeViewModelImpl(useCase: useCase)
         
-        let homeView = HomeView(viewModel: viewModel, router: appRouter)
+        let homeView = HomeView(viewModel: viewModel)
         
         return AnyView(homeView)
     }
