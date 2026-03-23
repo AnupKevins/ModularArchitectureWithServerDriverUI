@@ -20,7 +20,8 @@ struct HomeView<ViewModel: HomeViewModel>: View {
     }
     
     public var body: some View {
-        ScrollView {
+        print("@@@ HomeView body")
+       return ScrollView {
             ForEach(viewModel.components, id: \.id) { component in
                 ServerDrivenRenderer(components: [component])
                 Text("\(component.type)")

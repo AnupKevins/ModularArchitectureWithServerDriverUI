@@ -19,12 +19,15 @@ struct AppRootView: View {
     }
     
     var body: some View {
-        NavigationStack(path: $appRouter.path) {
-            appCoordinator.start(
+        print("@@@ AppRootView body recomputed")
+        return NavigationStack(path: $appRouter.path) {
+            print("@@@ AppRootView NavigationStack")
+            return appCoordinator.start(
                 route: .homeRoute
             )
             .navigationDestination(for: AppRoute.self) { route in
-                appCoordinator.start(
+                print("@@@ AppRootView navigationDestination")
+               return appCoordinator.start(
                     route: route
                 )
             }

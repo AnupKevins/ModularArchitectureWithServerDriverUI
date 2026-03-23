@@ -17,30 +17,22 @@ protocol AppCoordinator {
 
 final class AppCoordinatorImpl: AppCoordinator {
     
-    private let resolver: [Resolver]
-    
+    private let resolvers: [AppRoute: Resolver]
     init(
-       // appDependency: AppDependency,
-        resolver: [Resolver]
+        resolvers: [AppRoute: Resolver]
     ) {
-        //self.appDependency = appDependency
-        self.resolver = resolver
+        self.resolvers = resolvers
         // 🔥 Register once here
         ServerDrivenEngineViewRegister.registerDefaults()
     }
     
     func start(route: AppRoute) -> AnyView {
-//        switch route {
-//            case .homeRoute:
-//                appDependency.homeCoordinator.build(route: .home)
-//            case .productListRoute:
-//                appDependency.productCoordinator.build(route: .productList)
-//        }
+        print("@@@ route: \(route)")
         
-        for resolver in resolver {
-            print("@@@ route: \(route)")
+        if let resolver = resolvers[route] {
             print("@@@ Resolver: \(resolver)")
             if let view = resolver.resolve(route: route) {
+                print("@@@ view: \(view)")
                 return view
             }
         }

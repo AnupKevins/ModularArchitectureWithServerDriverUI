@@ -40,9 +40,9 @@ final class AppDependency {
         let homeResolver = HomeResolver(coordinator: homeCoordinator)
         let productResolver = ProductResolver(productCoordinator: productCoordinator)
         
-        return AppCoordinatorImpl(resolver: [
-            homeResolver,
-            productResolver
+        return AppCoordinatorImpl(resolvers: [
+            .homeRoute: homeResolver,
+            .productListRoute: productResolver
         ])
     }()
 }
