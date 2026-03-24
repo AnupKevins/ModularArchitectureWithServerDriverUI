@@ -18,8 +18,6 @@ protocol AppCoordinator {
 
 final class AppCoordinatorImpl: AppCoordinator {
     
-    // Use Dictionary to reduce the TC from for loop O(n) to O(1)
-    
     init() {
         // 🔥 Register once here
         ServerDrivenEngineViewRegister.registerDefaults()
