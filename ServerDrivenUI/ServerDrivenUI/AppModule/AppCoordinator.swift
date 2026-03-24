@@ -26,16 +26,7 @@ final class AppCoordinatorImpl: AppCoordinator {
     }
     
     func start(route: AppRoute) -> AnyView {
-        
-        switch route {
-            case .homeRoute(let serverDrivenHomeRoute):
-                // inside closure of Home feature runs only when you call this resolve
-                return resolve(serverDrivenHomeRoute, notFound: "Home route not found")
-                
-            case .productListRoute(let productRoute):
-                
-                return resolve(productRoute, notFound: "Home route not found")
-        }
+        resolve(route.featureRoute, notFound: "Route not found")
     }
     
     private func resolve(_ route: any Hashable, notFound message: String) -> AnyView {

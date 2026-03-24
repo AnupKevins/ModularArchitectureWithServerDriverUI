@@ -24,11 +24,7 @@ public enum HomeFeature {
         
         var coordinator: HomeCoordinator?
         
-        ResolverRegistry.shared.register { route in
-            
-            guard let route = route as? ServerDrivenHomeRoute else {
-                return nil
-            }
+        ResolverRegistry.shared.register(routeType: ServerDrivenHomeRoute.self) { route in
             
             if coordinator == nil {
                 coordinator = makeCoordinator(apiClient: apiClient)

@@ -10,11 +10,6 @@ import CoreModule
 import FeatureHome
 import FeatureProducts
 
-public enum AppRoute: Hashable {
-    case homeRoute(ServerDrivenHomeRoute)
-    case productListRoute(ProductRoute)
-}
-
 final class AppDependency {
     
     private let apiClient: APIClient

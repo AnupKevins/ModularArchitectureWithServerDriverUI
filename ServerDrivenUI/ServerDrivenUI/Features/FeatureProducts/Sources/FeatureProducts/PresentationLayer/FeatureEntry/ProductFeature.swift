@@ -20,11 +20,7 @@ public enum ProductFeature {
         
         var coordinator: ProductCoordinator?
         
-        ResolverRegistry.shared.register { route in
-            
-            guard let route = route as? ProductRoute else {
-                return nil
-            }
+        ResolverRegistry.shared.register(routeType: ProductRoute.self) { route in
             
             if coordinator == nil {
                 coordinator = makeCoordinator(apiClient: apiClient)
