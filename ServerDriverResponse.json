@@ -1,0 +1,19 @@
+{
+    "components": [
+        {
+        "id": 1,
+        "type": "banner",
+        "payload": {
+            "title": "Clubcard Offer",
+            "color": "red"
+        }
+        },
+        {
+        "id": 2,
+        "type": "productCarousel",
+        "payload": {
+            "categoryId": "123"
+        }
+        }
+    ]
+}
