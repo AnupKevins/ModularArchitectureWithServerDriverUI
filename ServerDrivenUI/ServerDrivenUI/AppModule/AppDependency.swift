@@ -28,24 +28,17 @@ final class AppDependency {
         )
         
         self.router = router
+        
+        registerFeatureResolvers()
     }
-    // The DependencyContainer should only hold long-lived infrastructure dependencies, not feature objects.
-    lazy var homeCoordinator: HomeCoordinator = HomeFeature.makeCoordinator(
-        apiClient: apiClient
-    )
-    
-    lazy var productCoordinator: ProductCoordinator = ProductFeature.makeCoordinator(
-        apiClient: apiClient
-    )
     
     lazy var appCoordinator: AppCoordinator = {
-        
-        let homeResolver = HomeResolver(coordinator: homeCoordinator)
-        let productResolver = ProductResolver(productCoordinator: productCoordinator)
-        
-        return AppCoordinatorImpl(
-            homeResolver: homeResolver,
-            productResolver: productResolver
-        )
+        return AppCoordinatorImpl()
     }()
+    
+    private func registerFeatureResolvers() {
+        HomeFeature.registerResolver(apiClient: apiClient)
+        
+        ProductFeature.registerResolver(apiClient: apiClient)
+    }
 }

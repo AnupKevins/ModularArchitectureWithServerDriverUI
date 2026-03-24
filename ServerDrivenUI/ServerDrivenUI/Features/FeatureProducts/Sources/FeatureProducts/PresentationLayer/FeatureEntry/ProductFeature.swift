@@ -7,10 +7,30 @@
 import CoreModule
 
 public enum ProductFeature {
-    public static func makeCoordinator(
+    
+    private static func makeCoordinator(
         apiClient: APIClient
     ) -> ProductCoordinator {
         let builder = ProductFeatureBuilderImpl(apiClient: apiClient)
         return ProductCoordinatorImpl(builder: builder)
+    }
+    
+    @MainActor
+    public static func registerResolver(apiClient: APIClient) {
+        
+        var coordinator: ProductCoordinator?
+        
+        ResolverRegistry.shared.register { route in
+            
+            guard let route = route as? ProductRoute else {
+                return nil
+            }
+            
+            if coordinator == nil {
+                coordinator = makeCoordinator(apiClient: apiClient)
+            }
+            
+            return coordinator?.build(route: route)
+        }
     }
 }

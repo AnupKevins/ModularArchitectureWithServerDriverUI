@@ -9,8 +9,5 @@ import SwiftUI
 
 @MainActor
 public protocol Resolver {
-    
-    associatedtype Route: Hashable
-    
-    func resolve(route: Route) -> AnyView?
+    func resolve(route: any Hashable) -> AnyView?
 }

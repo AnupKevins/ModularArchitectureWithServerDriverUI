@@ -9,8 +9,6 @@ import Foundation
 import SwiftUI
 import CoreModule
 import ServerDrivenEngine
-import FeatureHome
-import FeatureProducts
 
 @MainActor
 protocol AppCoordinator {
@@ -21,16 +19,8 @@ protocol AppCoordinator {
 final class AppCoordinatorImpl: AppCoordinator {
     
     // Use Dictionary to reduce the TC from for loop O(n) to O(1)
-    private let homeResolver: HomeResolver
-    private let productResolver: ProductResolver
     
-    init(
-        homeResolver: HomeResolver,
-        productResolver: ProductResolver
-    ) {
-        self.homeResolver = homeResolver
-        self.productResolver = productResolver
-        
+    init() {
         // 🔥 Register once here
         ServerDrivenEngineViewRegister.registerDefaults()
     }
@@ -39,11 +29,17 @@ final class AppCoordinatorImpl: AppCoordinator {
         
         switch route {
             case .homeRoute(let serverDrivenHomeRoute):
+                // inside closure of Home feature runs only when you call this resolve
+                return resolve(serverDrivenHomeRoute, notFound: "Home route not found")
                 
-                return homeResolver.resolve(route: serverDrivenHomeRoute) ?? AnyView(Text("Home route not found"))
             case .productListRoute(let productRoute):
                 
-                return productResolver.resolve(route: productRoute) ?? AnyView(Text("Product route not found"))
+                return resolve(productRoute, notFound: "Home route not found")
         }
+    }
+    
+    private func resolve(_ route: any Hashable, notFound message: String) -> AnyView {
+        ResolverRegistry.shared.resolve(route: route)
+        ?? AnyView(Text(message))
     }
 }

@@ -8,8 +8,6 @@
 import SwiftUI
 import CoreData
 
-// TODO
-
 //Dependency Direction
 //Presentation Layer -> Domain Layer <- Data Repositories Layer
 //
