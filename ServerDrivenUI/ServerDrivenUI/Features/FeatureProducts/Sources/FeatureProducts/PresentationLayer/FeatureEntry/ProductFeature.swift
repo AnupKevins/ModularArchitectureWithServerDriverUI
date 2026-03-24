@@ -8,10 +8,9 @@ import CoreModule
 
 public enum ProductFeature {
     public static func makeCoordinator(
-        apiClient: APIClient,
-        router: AppRouter<AppRoute>
+        apiClient: APIClient
     ) -> ProductCoordinator {
-        let builder = ProductFeatureBuilderImpl(apiClient: apiClient, router: router)
+        let builder = ProductFeatureBuilderImpl(apiClient: apiClient)
         return ProductCoordinatorImpl(builder: builder)
     }
 }

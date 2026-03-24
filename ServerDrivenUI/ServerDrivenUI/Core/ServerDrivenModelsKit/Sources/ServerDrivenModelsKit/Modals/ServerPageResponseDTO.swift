@@ -11,7 +11,7 @@ public struct ServerPageResponseDTO: Decodable {
     public let components: [ComponentConfigDTO]
 }
 
-public struct ComponentConfigDTO: Decodable, Identifiable {
+public struct ComponentConfigDTO: Decodable, Identifiable, Sendable {
     public let id: Int
     public let type: String
     public let payload: [String: String]

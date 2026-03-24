@@ -14,11 +14,9 @@ protocol ProductFeatureBuilder {
 
 final class ProductFeatureBuilderImpl: ProductFeatureBuilder {
     private let apiClient: APIClient
-    private let router: AppRouter<AppRoute>
     
-    init(apiClient: APIClient, router: AppRouter<AppRoute>) {
+    init(apiClient: APIClient) {
         self.apiClient = apiClient
-        self.router = router
     }
     
     @MainActor func makeProductView() -> AnyView {

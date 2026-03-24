@@ -10,6 +10,8 @@ import CoreModule
 import SwiftUI
 
 public final class ProductResolver: Resolver {
+    
+    public typealias Route = ProductRoute
 
     private let productCoordinator: ProductCoordinator
     
@@ -17,12 +19,10 @@ public final class ProductResolver: Resolver {
         self.productCoordinator = productCoordinator
     }
     
-    public func resolve(route: AppRoute) -> AnyView? {
+    public func resolve(route: ProductRoute) -> AnyView? {
         switch route {
-            case .productListRoute:
+            case .productList:
                 productCoordinator.build(route: .productList)
-            default:
-                nil
         }
     }
 }

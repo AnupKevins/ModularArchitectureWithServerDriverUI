@@ -7,8 +7,7 @@
 
 import SwiftUI
 import CoreData
-import FeatureHome
-import FeatureProducts
+
 // TODO
 
 //Dependency Direction

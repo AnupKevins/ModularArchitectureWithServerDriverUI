@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreModule
+import FeatureHome
 
 struct AppRootView: View {
     
@@ -21,13 +22,14 @@ struct AppRootView: View {
     var body: some View {
         NavigationStack(path: $appRouter.path) {
             appCoordinator.start(
-                route: .homeRoute
+                route: .homeRoute(.home)
             )
             .navigationDestination(for: AppRoute.self) { route in
                 appCoordinator.start(
                     route: route
                 )
             }
-        }.environment(appRouter)
+        }
+        .environment(\.homeNavigator, HomeFeatureNavigatorImpl(router: appRouter))
     }
 }

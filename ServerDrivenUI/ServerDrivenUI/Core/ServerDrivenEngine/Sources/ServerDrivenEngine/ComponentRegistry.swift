@@ -21,8 +21,12 @@ public final class ComponentRegistry {
         registry[component.type] = component
     }
     
-    public func resolve(_ config: ComponentConfigDTO) -> AnyView {
-        registry[config.type]?.init(config: config).render() ?? AnyView(FallbackView())
+    @ViewBuilder public func resolve(_ config: ComponentConfigDTO) -> some View {
+        if let component = registry[config.type] {
+            component.init(config: config).render()
+        } else {
+            FallbackView()
+        }
     }
     
 }

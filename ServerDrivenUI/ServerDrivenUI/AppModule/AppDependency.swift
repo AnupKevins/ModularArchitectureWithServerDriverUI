@@ -10,6 +10,11 @@ import CoreModule
 import FeatureHome
 import FeatureProducts
 
+public enum AppRoute: Hashable {
+    case homeRoute(ServerDrivenHomeRoute)
+    case productListRoute(ProductRoute)
+}
+
 final class AppDependency {
     
     private let apiClient: APIClient
@@ -30,8 +35,7 @@ final class AppDependency {
     )
     
     lazy var productCoordinator: ProductCoordinator = ProductFeature.makeCoordinator(
-        apiClient: apiClient,
-        router: router
+        apiClient: apiClient
     )
     
     lazy var appCoordinator: AppCoordinator = {
@@ -39,9 +43,9 @@ final class AppDependency {
         let homeResolver = HomeResolver(coordinator: homeCoordinator)
         let productResolver = ProductResolver(productCoordinator: productCoordinator)
         
-        return AppCoordinatorImpl(resolvers: [
-            .homeRoute: homeResolver,
-            .productListRoute: productResolver
-        ])
+        return AppCoordinatorImpl(
+            homeResolver: homeResolver,
+            productResolver: productResolver
+        )
     }()
 }

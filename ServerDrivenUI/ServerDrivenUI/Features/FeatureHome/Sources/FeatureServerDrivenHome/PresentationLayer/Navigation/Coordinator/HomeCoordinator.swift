@@ -8,8 +8,9 @@
 import SwiftUI
 import CoreModule
 
+@MainActor
 public protocol HomeCoordinator {
-    @MainActor func build(route: ServerDrivenHomeRoute) -> AnyView
+    func build(route: ServerDrivenHomeRoute) -> AnyView
 }
 
 public struct HomeCoordinatorImpl: HomeCoordinator {
@@ -20,7 +21,7 @@ public struct HomeCoordinatorImpl: HomeCoordinator {
         self.homeBuilder = homeBuilder
     }
     
-    @MainActor public func build(route: ServerDrivenHomeRoute) -> AnyView {
+    public func build(route: ServerDrivenHomeRoute) -> AnyView {
         switch route {
             case .home:
                 return homeBuilder.makeHome()

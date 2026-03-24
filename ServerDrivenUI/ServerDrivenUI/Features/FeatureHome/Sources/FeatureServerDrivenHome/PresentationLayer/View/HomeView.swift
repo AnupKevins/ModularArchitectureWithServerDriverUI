@@ -13,8 +13,8 @@ struct HomeView<ViewModel: HomeViewModel>: View {
     
     @State private var viewModel: ViewModel
     
-    @Environment(AppRouter<AppRoute>.self)
-    private var router
+    @Environment(\.homeNavigator)
+    private var homeNavigator
     
     init(viewModel: ViewModel) {
         self._viewModel = State(wrappedValue: viewModel)
@@ -28,7 +28,7 @@ struct HomeView<ViewModel: HomeViewModel>: View {
                 Text("\(component.type)")
             }
             Button("Navigate to product") {
-                router.push(route: .productListRoute)
+                homeNavigator?.openProductList()
             }
         }.task {
             await viewModel.fetchHomeComponents()

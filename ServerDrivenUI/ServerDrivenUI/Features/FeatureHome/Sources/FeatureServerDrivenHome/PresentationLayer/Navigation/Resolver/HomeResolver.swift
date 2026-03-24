@@ -10,6 +10,7 @@ import CoreModule
 import SwiftUI
 
 public final class HomeResolver: Resolver {
+    public typealias Route = ServerDrivenHomeRoute
     
     private let coordinator: HomeCoordinator
     
@@ -17,12 +18,10 @@ public final class HomeResolver: Resolver {
         self.coordinator = coordinator
     }
     
-    public func resolve(route: AppRoute) -> AnyView? {
+    public func resolve(route: ServerDrivenHomeRoute) -> AnyView? {
         switch route {
-            case .homeRoute:
+            case .home:
                 return coordinator.build(route: .home)
-            default:
-                return nil
         }
     }
 }

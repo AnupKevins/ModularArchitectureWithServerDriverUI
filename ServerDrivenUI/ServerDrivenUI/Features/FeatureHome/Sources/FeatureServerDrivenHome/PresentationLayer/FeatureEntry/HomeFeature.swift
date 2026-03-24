@@ -9,7 +9,7 @@ import CoreModule
 
 public enum HomeFeature {
     
-    public static func makeCoordinator(
+    @MainActor public static func makeCoordinator(
         apiClient: APIClient
     ) -> HomeCoordinator {
         

@@ -7,8 +7,9 @@
 
 import Observation
 
+@MainActor
 @Observable
-public final class AppRouter<Route: Hashable> {
+public final class AppRouter<Route: Hashable>: NavigationRouting {
     
     public var path: [Route] = []
     
