@@ -3,14 +3,6 @@
 
 import CoreModule
 
-public protocol ProductRepository {
-    func fetchProduct() async throws -> [Product] // Repository should return Domain model, not DTO.
-    // Network → DTO
-//    Repository → maps DTO → Domain
-//    UseCase → returns Domain
-//    ViewModel → maps Domain → UI Model
-}
-
 final class ProductRepositoryImpl: ProductRepository {
     private let apiClient: APIClient
     

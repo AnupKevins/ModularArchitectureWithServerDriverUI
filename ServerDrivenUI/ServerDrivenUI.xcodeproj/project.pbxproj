@@ -11,6 +11,7 @@
 		364883562F574A2600C3DA87 /* ServerDrivenEngine in Frameworks */ = {isa = PBXBuildFile; productRef = 364883552F574A2600C3DA87 /* ServerDrivenEngine */; };
 		364883E32F584B6100C3DA87 /* CoreModule in Frameworks */ = {isa = PBXBuildFile; productRef = 364883E22F584B6100C3DA87 /* CoreModule */; };
 		364883E52F584DF200C3DA87 /* FeatureProducts in Frameworks */ = {isa = PBXBuildFile; productRef = 364883E42F584DF200C3DA87 /* FeatureProducts */; };
+		36D53DDD2F72F1CC004FFE44 /* FeatureVoiceOver in Frameworks */ = {isa = PBXBuildFile; productRef = 36D53DDC2F72F1CC004FFE44 /* FeatureVoiceOver */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 				364883E32F584B6100C3DA87 /* CoreModule in Frameworks */,
 				364883562F574A2600C3DA87 /* ServerDrivenEngine in Frameworks */,
 				364883E52F584DF200C3DA87 /* FeatureProducts in Frameworks */,
+				36D53DDD2F72F1CC004FFE44 /* FeatureVoiceOver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +137,7 @@
 				364883552F574A2600C3DA87 /* ServerDrivenEngine */,
 				364883E22F584B6100C3DA87 /* CoreModule */,
 				364883E42F584DF200C3DA87 /* FeatureProducts */,
+				36D53DDC2F72F1CC004FFE44 /* FeatureVoiceOver */,
 			);
 			productName = ServerDrivenUI;
 			productReference = 364883042F55E0F800C3DA87 /* ServerDrivenUI.app */;
@@ -612,6 +615,10 @@
 		364883E42F584DF200C3DA87 /* FeatureProducts */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FeatureProducts;
+		};
+		36D53DDC2F72F1CC004FFE44 /* FeatureVoiceOver */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FeatureVoiceOver;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
