@@ -9,6 +9,7 @@ import Foundation
 import CoreModule
 import FeatureHome
 import FeatureProducts
+import FeatureVoiceOver
 
 final class AppDependency {
     
@@ -35,5 +36,7 @@ final class AppDependency {
         HomeFeature.registerResolver(apiClient: apiClient)
         
         ProductFeature.registerResolver(apiClient: apiClient)
+        
+        VoiceOverFeature.registerResolver()
     }
 }

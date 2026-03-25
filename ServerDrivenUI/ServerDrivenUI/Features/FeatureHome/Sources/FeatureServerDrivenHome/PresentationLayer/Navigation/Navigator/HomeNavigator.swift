@@ -9,4 +9,6 @@
 @MainActor
 public protocol HomeNavigator: Sendable {
     func openProductList()
+    
+    func openVoiceOver()
 }

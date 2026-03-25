@@ -7,10 +7,13 @@
 
 import FeatureHome
 import FeatureProducts
+import FeatureVoiceOver
 
 public enum AppRoute: Hashable {
     case homeRoute(ServerDrivenHomeRoute)
     case productListRoute(ProductRoute)
+    case voiceOverRoute(VoiceOverRoute)
+    
 }
 
 extension AppRoute {
@@ -21,6 +24,8 @@ extension AppRoute {
             case .homeRoute(let route):
                 return route
             case .productListRoute(let route):
+                return route
+            case .voiceOverRoute(let route):
                 return route
         }
     }

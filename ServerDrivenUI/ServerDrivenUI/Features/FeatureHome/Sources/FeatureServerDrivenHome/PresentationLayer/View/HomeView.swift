@@ -30,6 +30,10 @@ struct HomeView<ViewModel: HomeViewModel>: View {
             Button("Navigate to product") {
                 homeNavigator?.openProductList()
             }
+           Spacer()
+           Button("Navigate to Voice over") {
+               homeNavigator?.openVoiceOver()
+           }
         }.task {
             await viewModel.fetchHomeComponents()
         }.onChange(of: viewModel.components.count) { newValue in

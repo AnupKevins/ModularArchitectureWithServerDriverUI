@@ -18,6 +18,266 @@
             endingLineNumber = "31"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "CCC83AFC-66FD-4AF5-B078-DDCE813F2169 - ee6b585687e91742"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;FeatureProducts.Product&gt;, Swift.Int, &lt;&lt;opaque return type of SwiftUI.View.swipeActions&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(edge: SwiftUI.HorizontalEdge, allowsFullSwipe: Swift.Bool, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.opacity(Swift.Double) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.onScrollGeometryChange&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Equatable&gt;(for: &#x3c4;_1_0.Type, of: (SwiftUI.ScrollGeometry) -&gt; &#x3c4;_1_0, action: (&#x3c4;_1_0, &#x3c4;_1_0) -&gt; ()) -&gt; some&gt;&gt;.0)&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.opacity(Swift.Double) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.onScrollGeometryChange&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Equatable&gt;(for: &#x3c4;_1_0.Type, of: (SwiftUI.ScrollGeometry) -&gt; &#x3c4;_1_0, action: (&#x3c4;_1_0, &#x3c4;_1_0) -&gt; ()) -&gt; some&gt;&gt;.0)&gt;&gt; in FeatureProducts.ProductView.body.getter : some"
+                  moduleName = "ServerDrivenUI.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupsahu/Documents/interview_learning/ModularArchitectureWIthServerDrivenUI/ModularArchitectureWithServerDriverUI/ServerDrivenUI/ServerDrivenUI/Features/FeatureProducts/Sources/FeatureProducts/PresentationLayer/View/ProductListView/ProductView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31">
+               </Location>
+               <Location
+                  uuid = "CCC83AFC-66FD-4AF5-B078-DDCE813F2169 - 57c06b587e34ad44"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (FeatureProducts.Product) -&gt; &lt;&lt;opaque return type of SwiftUI.View.swipeActions&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(edge: SwiftUI.HorizontalEdge, allowsFullSwipe: Swift.Bool, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;FeatureProducts.Product&gt;, Swift.Int, &lt;&lt;opaque return type of SwiftUI.View.swipeActions&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(edge: SwiftUI.HorizontalEdge, allowsFullSwipe: Swift.Bool, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.opacity(Swift.Double) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.onScrollGeometryChange&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Equatable&gt;(for: &#x3c4;_1_0.Type, of: (SwiftUI.ScrollGeometry) -&gt; &#x3c4;_1_0, action: (&#x3c4;_1_0, &#x3c4;_1_0) -&gt; ()) -&gt; some&gt;&gt;.0)&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.opacity(Swift.Double) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.onScrollGeometryChange&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Equatable&gt;(for: &#x3c4;_1_0.Type, of: (SwiftUI.ScrollGeometry) -&gt; &#x3c4;_1_0, action: (&#x3c4;_1_0, &#x3c4;_1_0) -&gt; ()) -&gt; some&gt;&gt;.0)&gt;&gt; in FeatureProducts.ProductView.body.getter : some"
+                  moduleName = "ServerDrivenUI.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupsahu/Documents/interview_learning/ModularArchitectureWIthServerDrivenUI/ModularArchitectureWithServerDriverUI/ServerDrivenUI/ServerDrivenUI/Features/FeatureProducts/Sources/FeatureProducts/PresentationLayer/View/ProductListView/ProductView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31">
+               </Location>
+               <Location
+                  uuid = "CCC83AFC-66FD-4AF5-B078-DDCE813F2169 - ee6b585687e91742"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;FeatureProducts.Product&gt;, Swift.Int, &lt;&lt;opaque return type of SwiftUI.View.swipeActions&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(edge: SwiftUI.HorizontalEdge, allowsFullSwipe: Swift.Bool, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.opacity(Swift.Double) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.onScrollGeometryChange&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Equatable&gt;(for: &#x3c4;_1_0.Type, of: (SwiftUI.ScrollGeometry) -&gt; &#x3c4;_1_0, action: (&#x3c4;_1_0, &#x3c4;_1_0) -&gt; ()) -&gt; some&gt;&gt;.0)&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.opacity(Swift.Double) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.onScrollGeometryChange&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Equatable&gt;(for: &#x3c4;_1_0.Type, of: (SwiftUI.ScrollGeometry) -&gt; &#x3c4;_1_0, action: (&#x3c4;_1_0, &#x3c4;_1_0) -&gt; ()) -&gt; some&gt;&gt;.0)&gt;&gt; in FeatureProducts.ProductView.body.getter : some"
+                  moduleName = "ServerDrivenUI.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupsahu/Documents/interview_learning/ModularArchitectureWIthServerDrivenUI/ModularArchitectureWithServerDriverUI/ServerDrivenUI/ServerDrivenUI/Features/FeatureProducts/Sources/FeatureProducts/PresentationLayer/View/ProductListView/ProductView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31">
+               </Location>
+               <Location
+                  uuid = "CCC83AFC-66FD-4AF5-B078-DDCE813F2169 - 57c06b587e34ad44"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (FeatureProducts.Product) -&gt; &lt;&lt;opaque return type of SwiftUI.View.swipeActions&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(edge: SwiftUI.HorizontalEdge, allowsFullSwipe: Swift.Bool, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;FeatureProducts.Product&gt;, Swift.Int, &lt;&lt;opaque return type of SwiftUI.View.swipeActions&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(edge: SwiftUI.HorizontalEdge, allowsFullSwipe: Swift.Bool, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.opacity(Swift.Double) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.onScrollGeometryChange&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Equatable&gt;(for: &#x3c4;_1_0.Type, of: (SwiftUI.ScrollGeometry) -&gt; &#x3c4;_1_0, action: (&#x3c4;_1_0, &#x3c4;_1_0) -&gt; ()) -&gt; some&gt;&gt;.0)&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.opacity(Swift.Double) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.onScrollGeometryChange&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Equatable&gt;(for: &#x3c4;_1_0.Type, of: (SwiftUI.ScrollGeometry) -&gt; &#x3c4;_1_0, action: (&#x3c4;_1_0, &#x3c4;_1_0) -&gt; ()) -&gt; some&gt;&gt;.0)&gt;&gt; in FeatureProducts.ProductView.body.getter : some"
+                  moduleName = "ServerDrivenUI.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupsahu/Documents/interview_learning/ModularArchitectureWIthServerDrivenUI/ModularArchitectureWithServerDriverUI/ServerDrivenUI/ServerDrivenUI/Features/FeatureProducts/Sources/FeatureProducts/PresentationLayer/View/ProductListView/ProductView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8D8C15A0-F026-4924-BB31-FC88BCAF6724"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ServerDrivenUI/Features/FeatureVoiceOver/Sources/FeatureVoiceOver/Navigation/Builder/VoiceOverBuilder.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "makeVoiceOverView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "40498710-ECCB-423C-8A7A-8CEE7BACAA46"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ServerDrivenUI/Features/FeatureVoiceOver/Sources/FeatureVoiceOver/FeatureEntry/VoiceOverFeature.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "registerResolver()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0788DE23-6FCA-4947-8354-131872984081"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ServerDrivenUI/Features/FeatureVoiceOver/Sources/FeatureVoiceOver/FeatureEntry/VoiceOverFeature.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "registerResolver()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "18F08D73-A706-4964-8D05-060A7AB092C3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ServerDrivenUI/Features/FeatureVoiceOver/Sources/FeatureVoiceOver/FeatureEntry/VoiceOverFeature.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "registerResolver()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B967A1A4-982B-4E71-A9CC-B36D7FCBE0F1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ServerDrivenUI/Features/FeatureVoiceOver/Sources/FeatureVoiceOver/FeatureEntry/VoiceOverFeature.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "registerResolver()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F9CD87C7-4FA1-4332-954D-BBBBE37D527C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ServerDrivenUI/Features/FeatureVoiceOver/Sources/FeatureVoiceOver/Navigation/Coordinator/VoiceOverCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "build(route:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6475C836-6D93-4421-B1C0-C2CEFAEF18DB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ServerDrivenUI/Features/FeatureVoiceOver/Sources/FeatureVoiceOver/Navigation/Coordinator/VoiceOverCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "build(route:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DB80352A-D702-4993-ACCD-A3544094B271"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ServerDrivenUI/Features/FeatureVoiceOver/Sources/FeatureVoiceOver/Navigation/Builder/VoiceOverBuilder.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "makeVoiceOverView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "90DFD350-1180-4CF8-84E5-2CD56F9A858D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ServerDrivenUI/Features/FeatureVoiceOver/Sources/FeatureVoiceOver/Views/AccessibilityVoiceOver.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "90DFD350-1180-4CF8-84E5-2CD56F9A858D - c289c9111383824c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FeatureVoiceOver.AccessibilityVoiceOver.body.getter : some"
+                  moduleName = "ServerDrivenUI.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupsahu/Documents/interview_learning/ModularArchitectureWIthServerDrivenUI/ModularArchitectureWithServerDriverUI/ServerDrivenUI/ServerDrivenUI/Features/FeatureVoiceOver/Sources/FeatureVoiceOver/Views/AccessibilityVoiceOver.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11">
+               </Location>
+               <Location
+                  uuid = "90DFD350-1180-4CF8-84E5-2CD56F9A858D - 8c95276236340abe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.Form&lt;SwiftUI.TupleView&lt;(SwiftUI.Section&lt;SwiftUI.Text, SwiftUI.TupleView&lt;(SwiftUI.Toggle&lt;SwiftUI.Text&gt;, &lt;&lt;opaque return type of SwiftUI.View.onTapGesture(count: Swift.Int, perform: () -&gt; ()) -&gt; some&gt;&gt;.0)&gt;, SwiftUI.EmptyView&gt;, SwiftUI.Section&lt;SwiftUI.Text, SwiftUI.TupleView&lt;(SwiftUI.Button&lt;SwiftUI.Text&gt;, SwiftUI.Button&lt;SwiftUI.Image&gt;, &lt;&lt;opaque return type of SwiftUI.View.onTapGesture(count: Swift.Int, perform: () -&gt; ()) -&gt; some&gt;&gt;.0)&gt;, SwiftUI.EmptyView&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.font(Swift.Optional&lt;SwiftUI.Font&gt;) -&gt; some&gt;&gt;.0, SwiftUI.ScrollView&lt;SwiftUI.HStack&lt;SwiftUI.ForEach&lt;Swift.Range&lt;Swift.Int&gt;, Swift.Int, &lt;&lt;opaque return type of SwiftUI.View.onTapGesture(count: Swift.Int, perform: () -&gt; ()) -&gt; some&gt;&gt;.0&gt;&gt;&gt;)&gt;&gt;)&gt;&gt; in FeatureVoiceOver.AccessibilityVoiceOver.body.getter : some"
+                  moduleName = "ServerDrivenUI.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupsahu/Documents/interview_learning/ModularArchitectureWIthServerDrivenUI/ModularArchitectureWithServerDriverUI/ServerDrivenUI/ServerDrivenUI/Features/FeatureVoiceOver/Sources/FeatureVoiceOver/Views/AccessibilityVoiceOver.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11">
+               </Location>
+               <Location
+                  uuid = "90DFD350-1180-4CF8-84E5-2CD56F9A858D - c289c9111383822f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FeatureVoiceOver.AccessibilityVoiceOver.body.getter : some"
+                  moduleName = "ServerDrivenUI.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupsahu/Documents/interview_learning/ModularArchitectureWIthServerDrivenUI/ModularArchitectureWithServerDriverUI/ServerDrivenUI/ServerDrivenUI/Features/FeatureVoiceOver/Sources/FeatureVoiceOver/Views/AccessibilityVoiceOver.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12">
+               </Location>
+               <Location
+                  uuid = "90DFD350-1180-4CF8-84E5-2CD56F9A858D - 7245f245a924cc45"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Section&lt;SwiftUI.Text, SwiftUI.TupleView&lt;(SwiftUI.Toggle&lt;SwiftUI.Text&gt;, SwiftUI.ModifiedContent&lt;&lt;&lt;opaque return type of SwiftUI.View.accessibilityElement(children: SwiftUI.AccessibilityChildBehavior) -&gt; some&gt;&gt;.0, SwiftUI.AccessibilityAttachmentModifier&gt;)&gt;, SwiftUI.EmptyView&gt;, SwiftUI.Section&lt;SwiftUI.Text, SwiftUI.TupleView&lt;(SwiftUI.ModifiedContent&lt;SwiftUI.Button&lt;SwiftUI.Text&gt;, SwiftUI.AccessibilityAttachmentModifier&gt;, SwiftUI.ModifiedContent&lt;SwiftUI.Button&lt;SwiftUI.Image&gt;, SwiftUI.AccessibilityAttachmentModifier&gt;, &lt;&lt;opaque return type of SwiftUI.View.onTapGesture(count: Swift.Int, perform: () -&gt; ()) -&gt; some&gt;&gt;.0)&gt;, SwiftUI.EmptyView&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(SwiftUI.ModifiedContent&lt;&lt;&lt;opaque return type of SwiftUI.View.font(Swift.Optional&lt;SwiftUI.Font&gt;) -&gt; some&gt;&gt;.0, SwiftUI.AccessibilityAttachmentModifier&gt;, SwiftUI.ScrollView&lt;SwiftUI.HStack&lt;SwiftUI.ForEach&lt;Swift.Range&lt;Swift.Int&gt;, Swift.Int, SwiftUI.ModifiedContent&lt;&lt;&lt;opaque return type of SwiftUI.View.accessibilityElement(children: SwiftUI.AccessibilityChildBehavior) -&gt; some&gt;&gt;.0, SwiftUI.AccessibilityAttachmentModifier&gt;&gt;&gt;&gt;)&gt;&gt;)&gt; in FeatureVoiceOver.AccessibilityVoiceOver.body.getter : some"
+                  moduleName = "ServerDrivenUI.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anupsahu/Documents/interview_learning/ModularArchitectureWIthServerDrivenUI/ModularArchitectureWithServerDriverUI/ServerDrivenUI/ServerDrivenUI/Features/FeatureVoiceOver/Sources/FeatureVoiceOver/Views/AccessibilityVoiceOver.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

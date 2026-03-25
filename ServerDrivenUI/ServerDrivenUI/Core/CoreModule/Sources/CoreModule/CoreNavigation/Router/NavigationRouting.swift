@@ -15,4 +15,9 @@ public protocol NavigationRouting {
     func pop()
     
     func popToRoot()
+    
+    func replace(_ route: Route)
+    
+    // Deeplink
+    func reset(_ routes: [Route])
 }

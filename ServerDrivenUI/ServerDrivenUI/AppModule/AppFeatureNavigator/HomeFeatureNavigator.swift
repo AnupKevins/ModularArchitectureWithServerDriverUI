@@ -8,6 +8,7 @@
 import Foundation
 import FeatureHome
 import FeatureProducts
+import FeatureVoiceOver
 import CoreModule
 import Observation
 
@@ -22,5 +23,9 @@ final class HomeFeatureNavigatorImpl: HomeNavigator {
     
     func openProductList() {
         router.push(route: .productListRoute(.productList))
+    }
+    
+    func openVoiceOver() {
+        router.push(route: .voiceOverRoute(.voiceOver))
     }
 }
