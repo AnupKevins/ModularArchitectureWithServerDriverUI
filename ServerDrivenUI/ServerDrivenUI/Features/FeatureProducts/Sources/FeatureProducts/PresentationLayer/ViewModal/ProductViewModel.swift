@@ -7,12 +7,24 @@
 
 import Foundation
 import Combine
-import ServerDrivenModelsKit
+import Observation
 
 @MainActor
-public final class ProductViewModel: ObservableObject {
-    @Published var products: [Product] = []
-    @Published var isLoading: Bool = false
+protocol ProductViewModel: AnyObject {
+    var products: [Product] { get }
+    var isLoading: Bool { get }
+    var error: Error? { get }
+    
+    func fetchProducts() async
+    func deleteProduct(_ product: Product)
+}
+
+@MainActor
+@Observable
+final class ProductViewModelImpl: ProductViewModel {
+    var products: [Product] = []
+    var isLoading: Bool = false
+    var error: Error?
     
     private let useCase: FetchProductUseCase
     
@@ -33,11 +45,12 @@ public final class ProductViewModel: ObservableObject {
             
         } catch {
             print("error", error)
+            self.error = error
         }
         
     }
     
     func deleteProduct(_ product: Product) {
-        products.removeAll { $0.id == product.id }
+        products.removeAll(where: { $0.id == product.id })
     }
 }

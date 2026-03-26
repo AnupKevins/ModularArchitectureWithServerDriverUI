@@ -13,6 +13,11 @@ protocol ProductMapper {
 struct ProductMapperImpl: ProductMapper {
     func map(dto: ProductResponseDTO) -> Product {
        
-       return Product(id: dto.id, title: dto.title, price: dto.price)
+        Product(
+            id: dto.id,
+            title: dto.title,
+            price: dto.price,
+            image: dto.image
+        )
     }
 }

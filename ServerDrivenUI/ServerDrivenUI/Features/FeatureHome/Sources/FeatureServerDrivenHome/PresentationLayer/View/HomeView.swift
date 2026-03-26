@@ -13,8 +13,7 @@ struct HomeView<ViewModel: HomeViewModel>: View {
     
     @State private var viewModel: ViewModel
     
-    @Environment(\.homeNavigator)
-    private var homeNavigator
+    @Environment(\.homeNavigator) private var homeNavigator
     
     init(viewModel: ViewModel) {
         self._viewModel = State(wrappedValue: viewModel)

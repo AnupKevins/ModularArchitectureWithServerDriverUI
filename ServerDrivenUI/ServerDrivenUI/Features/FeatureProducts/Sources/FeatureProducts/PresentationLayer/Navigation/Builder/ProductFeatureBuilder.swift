@@ -26,7 +26,7 @@ final class ProductFeatureBuilderImpl: ProductFeatureBuilder {
         
         let useCase = FetchProductUseCaseImpl(repository: repository)
         
-        let viewModel = ProductViewModel(useCase: useCase)
+        let viewModel = ProductViewModelImpl(useCase: useCase)
         
         let view = ProductView(viewModel: viewModel)
         

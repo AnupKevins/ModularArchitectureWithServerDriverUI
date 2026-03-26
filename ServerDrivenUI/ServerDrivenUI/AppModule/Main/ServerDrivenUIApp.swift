@@ -22,17 +22,23 @@ import CoreModule
 struct ServerDrivenUIApp: App {
     private let appCoordinator: AppCoordinator
     private let appRouter: AppRouter<AppRoute>
+    private let imageLoader: ImageLoader
     
     init() {
         appRouter = AppRouter<AppRoute>()
         let appDependency = AppDependency(environment: .dev, router: appRouter)
         
         self.appCoordinator = appDependency.appCoordinator
+        self.imageLoader = appDependency.imageLoader
     }
     
     var body: some Scene {
         WindowGroup {
-            AppRootView(coordinator: appCoordinator, appRouter: appRouter)
+            AppRootView(
+                coordinator: appCoordinator,
+                appRouter: appRouter
+            )
+            .environment(\.imageLoader, imageLoader)
         }
     }
 }

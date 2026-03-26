@@ -13,7 +13,6 @@ struct TitleViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
         .font(.system(size: fontSize * 0.04))
-        .lineLimit(0)
         .multilineTextAlignment(.leading)
         .background(Color(.systemGray6))
     }

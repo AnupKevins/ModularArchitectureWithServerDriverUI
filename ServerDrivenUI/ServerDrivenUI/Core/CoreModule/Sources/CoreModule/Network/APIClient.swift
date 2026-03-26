@@ -2,11 +2,13 @@
 // https://docs.swift.org/swift-book
 import Foundation
 
-public protocol APIClient {
+public protocol APIClient: Sendable {
     func request<R: APIRequest>(_ request: R) async throws -> R.Response
+    
+    func data(from url: URL) async throws -> Data
 }
 
-public final class ApiClientImpl: APIClient {
+public final class ApiClientImpl: APIClient, @unchecked Sendable {
     
     private let session: URLSession
     private let baseUrl: URL
@@ -65,6 +67,21 @@ public final class ApiClientImpl: APIClient {
         } catch {
             throw NetworkError.decodingFailed(error)
         }
+    }
+    
+    public func data(from url: URL) async throws -> Data {
+        
+        let (data, response) = try await session.data(from: url)
+        
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw NetworkError.invalidResponse
+        }
+        
+        guard (200..<300).contains(httpResponse.statusCode) else {
+            throw NetworkError.invalidStatusCode(httpResponse.statusCode)
+        }
+        
+        return data
     }
     
 //    public func fetchPage<T: Codable & Sendable>(_ endpoint: Endpoint) async throws -> T {

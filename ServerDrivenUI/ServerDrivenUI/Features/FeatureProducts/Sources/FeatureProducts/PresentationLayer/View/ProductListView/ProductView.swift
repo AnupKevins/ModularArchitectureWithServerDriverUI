@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-public struct ProductView: View {
+struct ProductView<ViewModel: ProductViewModel>: View {
     
-    @StateObject private var viewModel: ProductViewModel
+    @State private var viewModel: ViewModel
     // here coordinator creates the Viewmodel so use @ObservedObject
     @State private var offset: CGFloat = 0
     
-    init(viewModel: ProductViewModel) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
+    init(viewModel: ViewModel) {
+        self._viewModel = State(wrappedValue: viewModel)
     }
     
     public var body: some View {
@@ -25,20 +25,14 @@ public struct ProductView: View {
                 HeaderView()
                     .opacity(offset > 100 ? 0 : 1)
                 
-                
                 List {
-                    
-                        ForEach(viewModel.products, id: \.id) { product in
-                            ProductRow(product: product, width: geo.size.width)
-                                .swipeActions(edge: .trailing) {
-                                    Button(role: .destructive) {
-                                        viewModel.deleteProduct(product)
-                                    } label: {
-                                        Label("Delete", systemImage: "trash")
-                                    }
-
-                                }
-                        }
+                    ForEach(viewModel.products) { product in
+                        ProductRowView(
+                            product: product,
+                            width: geo.size.width,
+                            onDelete: viewModel.deleteProduct
+                        )
+                    }
                     
                 }
                 .onScrollGeometryChange(for: CGFloat.self) { geometry in
@@ -49,9 +43,10 @@ public struct ProductView: View {
                 }
             }
         }
+        .navigationTitle("Product")
         .task {
             await viewModel.fetchProducts()
         }
-        .navigationTitle("Product")
+        
     }
 }

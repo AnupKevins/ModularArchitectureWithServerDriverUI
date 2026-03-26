@@ -10,13 +10,19 @@ import CoreModule
 import FeatureHome
 import FeatureProducts
 import FeatureVoiceOver
+import UIKit
 
 final class AppDependency {
     
     private let apiClient: APIClient
     private let router: AppRouter<AppRoute>
+    let imageLoader: ImageLoader
+    private let cache: MemoryCache<URL, UIImage>
     
-    init(environment: AppEnvironment, router: AppRouter<AppRoute>) {
+    init(
+        environment: AppEnvironment,
+        router: AppRouter<AppRoute>,
+    ) {
         
         self.apiClient = ApiClientImpl(
             session: .shared,
@@ -24,6 +30,10 @@ final class AppDependency {
         )
         
         self.router = router
+        
+        self.cache = MemoryCache<URL, UIImage>()
+        
+        self.imageLoader = ImageLoaderImpl(cache: cache, apiClient: apiClient)
         
         registerFeatureResolvers()
     }
