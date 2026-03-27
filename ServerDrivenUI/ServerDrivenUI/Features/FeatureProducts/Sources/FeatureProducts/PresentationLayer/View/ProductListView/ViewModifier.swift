@@ -12,7 +12,7 @@ struct TitleViewModifier: ViewModifier {
     var fontSize: CGFloat
     func body(content: Content) -> some View {
         content
-        .font(.system(size: fontSize * 0.04))
+        .font(.system(size: fontSize))
         .multilineTextAlignment(.leading)
         .background(Color(.systemGray6))
     }

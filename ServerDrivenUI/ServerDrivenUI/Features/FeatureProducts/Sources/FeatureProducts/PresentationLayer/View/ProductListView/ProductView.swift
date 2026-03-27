@@ -19,28 +19,26 @@ struct ProductView<ViewModel: ProductViewModel>: View {
     
     public var body: some View {
         
-        GeometryReader { geo in
-            VStack {
-                
-                HeaderView()
-                    .opacity(offset > 100 ? 0 : 1)
-                
-                List {
-                    ForEach(viewModel.products) { product in
-                        ProductRowView(
-                            product: product,
-                            width: geo.size.width,
-                            onDelete: viewModel.deleteProduct
-                        )
-                    }
-                    
+        
+        VStack {
+            
+            HeaderView()
+                .opacity(offset > 100 ? 0 : 1)
+            
+            List {
+                ForEach(viewModel.products) { product in
+                    ProductRowView(
+                        product: product,
+                        onDelete: viewModel.deleteProduct
+                    )
                 }
-                .onScrollGeometryChange(for: CGFloat.self) { geometry in
-                    geometry.contentOffset.y
-                } action: { oldValue, newValue in
-                    offset = newValue
-                    print("Scroll progress:", newValue)
-                }
+                
+            }
+            .onScrollGeometryChange(for: CGFloat.self) { geometry in
+                geometry.contentOffset.y
+            } action: { oldValue, newValue in
+                offset = newValue
+                print("@@@ Scroll progress:", newValue)
             }
         }
         .navigationTitle("Product")

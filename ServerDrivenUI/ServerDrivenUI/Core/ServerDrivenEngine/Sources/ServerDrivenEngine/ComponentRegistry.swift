@@ -21,7 +21,8 @@ public final class ComponentRegistry {
         registry[component.type] = component
     }
     
-    @ViewBuilder public func resolve(_ config: ComponentConfigDTO) -> some View {
+    @ViewBuilder
+    public func resolve(_ config: ComponentConfigDTO) -> some View {
         if let component = registry[config.type] {
             component.init(config: config).render()
         } else {

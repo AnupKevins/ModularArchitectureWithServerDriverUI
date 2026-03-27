@@ -10,7 +10,6 @@ import SwiftUI
 struct ProductRowView: View {
     
     let product: Product
-    let width: CGFloat
     let onDelete: (Product) -> Void
     
     @Environment(\.imageLoader) private var imageLoader
@@ -23,7 +22,7 @@ struct ProductRowView: View {
                 ProductImageView(url: url, imageLoader: imageLoader)
             }
             
-            ProductRow(product: product, width: width)
+            ProductRow(product: product)
         }
         .swipeActions {
             Button(role: .destructive) {

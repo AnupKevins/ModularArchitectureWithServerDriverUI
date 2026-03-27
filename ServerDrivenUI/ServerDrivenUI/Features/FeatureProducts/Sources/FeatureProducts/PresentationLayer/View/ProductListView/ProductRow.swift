@@ -10,12 +10,11 @@ import SwiftUI
 struct ProductRow: View {
     
     let product: Product
-    let width: CGFloat
     
     var body: some View {
         Text(product.title)
             .modifier(
-                TitleViewModifier(fontSize: width)
+                TitleViewModifier(fontSize: 16)
             )
     }
 }
