@@ -7,6 +7,6 @@
 
 import Foundation
 
-public protocol RequestInterceptor: Sendable {
+public protocol RequestAuthInterceptor: Sendable {
     func intercept(_ request: inout URLRequest) async throws
 }

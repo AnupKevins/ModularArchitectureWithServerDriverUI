@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct PaymentRequest {
+public struct PaymentRequestModel {
     
     public let senderId: String
     public let amount: Double

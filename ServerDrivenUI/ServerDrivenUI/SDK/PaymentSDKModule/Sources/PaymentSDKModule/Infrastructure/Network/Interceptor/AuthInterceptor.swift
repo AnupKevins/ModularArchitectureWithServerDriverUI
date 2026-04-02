@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class AuthInterceptor: RequestInterceptor {
+final class RequestAuthInterceptorImpl: RequestAuthInterceptor {
     
     private let authProvider: AuthProvider
     

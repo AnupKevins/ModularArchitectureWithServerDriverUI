@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct CreatePaymentAPIRequest: APIRequest {
+struct PaymentAPIRequest: APIRequest {
     
     typealias Response = PaymentResponseDTO
     
-    let request: PaymentRequest
+    let request: PaymentRequestModel
     
     var path: String { "/payments" }
     var method: String { "POST" }

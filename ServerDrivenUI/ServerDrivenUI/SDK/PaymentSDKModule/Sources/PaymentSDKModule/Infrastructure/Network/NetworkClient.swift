@@ -16,21 +16,42 @@ final class NetworkClientImpl: NetworkClient {
     private let session: URLSession
     private let baseURL: URL
     private let decoder: JSONDecoder
-    private let interceptors: [RequestInterceptor]
+    private let interceptors: [RequestAuthInterceptor]
+    private let retryExecutor: RetryExecutor?
     
     init(
         session: URLSession = .shared,
         baseURL: URL,
-        decoder: JSONDecoder,
-        interceptors: [RequestInterceptor]
+        decoder: JSONDecoder = JSONDecoder(),
+        interceptors: [RequestAuthInterceptor],
+        retryPolicy: RetryPolicy? = nil
     ) {
         self.session = session
         self.baseURL = baseURL
         self.decoder = decoder
         self.interceptors = interceptors
+        
+        if let retryPolicy = retryPolicy {
+            retryExecutor = RetryExecutorImpl(policy: retryPolicy)
+        } else {
+            retryExecutor = nil
+        }
     }
     
     func request<R: APIRequest>(_ request: R) async throws -> R.Response {
+        
+        let closureTask = {
+            try await self.performRequest(request) // 3
+        }
+        
+        if let retryExecutor = retryExecutor {
+            return try await retryExecutor.execute(closureTask) // 1
+        } else {
+            return try await closureTask()
+        }
+    }
+    
+    private func performRequest<R: APIRequest>(_ request: R) async throws -> R.Response {
         
         var urlRequest = try request.makeURLRequest(baseURL: baseURL)
         

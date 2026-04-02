@@ -9,5 +9,5 @@ import Foundation
 // Client → SDK Public API → Core → Data Layer
 
 public protocol PaymentSDK {
-    func pay(request: PaymentRequest) async throws -> PaymentResponse
+    func pay(request: PaymentRequestModel) async throws -> PaymentResponse
 }
