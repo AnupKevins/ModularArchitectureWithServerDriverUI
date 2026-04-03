@@ -7,5 +7,6 @@
 
 public enum ServerDrivenHomeRoute: Hashable {
     case home
+    case paymentScreen
 }
 

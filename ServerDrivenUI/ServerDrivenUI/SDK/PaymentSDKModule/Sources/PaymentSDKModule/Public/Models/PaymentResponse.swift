@@ -6,6 +6,11 @@
 //
 
 public struct PaymentResponse {
-    let transactionId: String
-    let status: PaymentStatus
+    public let transactionId: String
+    public let status: PaymentStatus
+    
+    public init(transactionId: String, status: PaymentStatus) {
+        self.transactionId = transactionId
+        self.status = status 
+    }
 }

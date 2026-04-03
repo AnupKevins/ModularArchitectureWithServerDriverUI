@@ -11,7 +11,8 @@ public struct PaymentRequestModel {
     
     public let senderId: String
     public let amount: Double
-    public let paymentType: PaymentType
+    // public let paymentType: PaymentType
+    public let paymentMethod: PaymentMethod
     public let details: PaymentDetails
     public let idempotencyKey: String // a unique identifier for a request to ensure it is processed only once
     
@@ -33,4 +34,12 @@ Request:
 Flow:
     First request → processed ✅
     Second request (same key) → ignored / same response returned ✅*/
+    
+    public init(senderId: String, amount: Double, paymentMethod: PaymentMethod, details: PaymentDetails, idempotencyKey: String) {
+        self.senderId = senderId
+        self.amount = amount
+        self.paymentMethod = paymentMethod
+        self.details = details
+        self.idempotencyKey = idempotencyKey
+    }
 }

@@ -13,6 +13,8 @@ public final class AppRouter<Route: Hashable>: NavigationRouting {
     
     public var path: [Route] = []
     
+    public var presentedSheet: SheetRoute<Route>?
+    
     public init() {}
     
     public func push(route: Route) {
@@ -43,6 +45,15 @@ public final class AppRouter<Route: Hashable>: NavigationRouting {
     // Reset stack with new routes (deep link)
     public func reset(_ routes: [Route]) {
         path = routes
+    }
+    
+    // ✅ PresentSheet
+    public func presentSheet(_ route: Route) {
+        presentedSheet = SheetRoute(route: route)
+    }
+    
+    public func dismissSheet() {
+        presentedSheet = nil
     }
 }
 

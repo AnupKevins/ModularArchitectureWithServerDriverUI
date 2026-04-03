@@ -11,4 +11,6 @@ public protocol HomeNavigator: Sendable {
     func openProductList()
     
     func openVoiceOver()
+    
+    func openPayment()
 }

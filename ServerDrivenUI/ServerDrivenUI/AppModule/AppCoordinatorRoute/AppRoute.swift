@@ -8,6 +8,7 @@
 import FeatureHome
 import FeatureProducts
 import FeatureVoiceOver
+import Foundation
 
 public enum AppRoute: Hashable {
     case homeRoute(ServerDrivenHomeRoute)

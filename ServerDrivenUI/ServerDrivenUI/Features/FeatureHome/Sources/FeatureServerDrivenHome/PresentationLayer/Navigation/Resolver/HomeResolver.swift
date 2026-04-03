@@ -21,9 +21,6 @@ public final class HomeResolver: Resolver {
         
         guard let route = route as? ServerDrivenHomeRoute else { return nil }
         
-        switch route {
-            case .home:
-                return coordinator.build(route: route)
-        }
+        return coordinator.build(route: route)
     }
 }

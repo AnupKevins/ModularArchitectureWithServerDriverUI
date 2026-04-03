@@ -20,7 +20,9 @@ final class PaymentSDKImpl: PaymentSDK {
     
     func pay(request: PaymentRequestModel) async throws -> PaymentResponse {
         
-        let isNew = await idempotencyStore.check(key: request.idempotencyKey)
+        let isNew = await idempotencyStore.check(
+            key: request.idempotencyKey
+        )
         
         guard isNew else {
             throw PaymentSDKError.duplicateRequest

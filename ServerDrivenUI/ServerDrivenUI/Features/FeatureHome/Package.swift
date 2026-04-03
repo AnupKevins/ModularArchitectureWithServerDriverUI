@@ -26,9 +26,9 @@ let package = Package(
         .target(
             name: "FeatureHome",
             dependencies: [
-                "CoreModule",
-                "ServerDrivenModelsKit",
-                "ServerDrivenEngine"
+                .product(name: "CoreModule", package: "CoreModule"),
+                .product(name: "ServerDrivenModelsKit", package: "ServerDrivenModelsKit"),
+                .product(name: "ServerDrivenEngine", package: "ServerDrivenEngine")
             ]
         ),
 

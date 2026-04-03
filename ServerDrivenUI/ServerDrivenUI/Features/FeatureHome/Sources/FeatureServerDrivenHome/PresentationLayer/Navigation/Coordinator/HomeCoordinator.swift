@@ -25,6 +25,8 @@ public struct HomeCoordinatorImpl: HomeCoordinator {
         switch route {
             case .home:
                 return homeBuilder.makeHome()
+            case .paymentScreen:
+                return homeBuilder.makePayment()
         }
     }
     

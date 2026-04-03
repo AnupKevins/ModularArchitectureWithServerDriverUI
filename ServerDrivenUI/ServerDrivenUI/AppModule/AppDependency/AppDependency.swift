@@ -11,6 +11,7 @@ import FeatureHome
 import FeatureProducts
 import FeatureVoiceOver
 import UIKit
+import PaymentSDKModule
 
 final class AppDependency {
     
@@ -18,6 +19,7 @@ final class AppDependency {
     private let router: AppRouter<AppRoute>
     let imageLoader: ImageLoader
     private let cache: MemoryCache<URL, UIImage>
+    private let paymentService: PaymentService
     
     init(
         environment: AppEnvironment,
@@ -27,6 +29,15 @@ final class AppDependency {
         self.apiClient = ApiClientImpl(
             session: .shared,
             baseUrl: environment.baseURL
+        )
+        
+        // 🔥 Payment SDK Creation
+        let paymentSDK = PaymentSDKBuilder(
+            baseURL: environment.baseURL
+        ).build()
+        
+        self.paymentService = PaymentServiceImpl(
+            paymentSDK: paymentSDK
         )
         
         self.router = router
@@ -43,7 +54,7 @@ final class AppDependency {
     }()
     
     private func registerFeatureResolvers() {
-        HomeFeature.registerResolver(apiClient: apiClient)
+        HomeFeature.registerResolver(apiClient: apiClient, paymentService: paymentService)
         
         ProductFeature.registerResolver(apiClient: apiClient)
         

@@ -8,16 +8,40 @@
 
 // For test cases
 // “We mock dependencies at the boundary of the system, so mocking the repository is sufficient without introducing unnecessary protocols.”
-final class PaymentProcessor {
+/*
+View (@MainActor)
+↓
+ViewModel (@MainActor)
+↓
+UseCase (Sendable)
+↓
+Repository (Sendable)
+↓
+Network
+*/
+// Why PaymentProcessor is not actor
+//Because PaymentProcessor is stateless ✅ and it has no mutable shared state
+//👉 Shared ≠ dangerous
+//👉 Mutable shared state = dangerous
+final class PaymentProcessor: Sendable {
     
-    private let repository: PaymentRepository
+    // Foe enum
+    // private let repository: PaymentRepository
     
-    init(repository: PaymentRepository) {
-        self.repository = repository
+    // For Strategy pattern Payment handler registry
+    private let registry: PaymentHandlerRegistry
+    
+    init(registry: PaymentHandlerRegistry) {
+        self.registry = registry
     }
     
     func process(request: PaymentRequestModel) async throws -> PaymentResponse {
         
-        return try await repository.makePayment(request: request)
+        guard let handler = registry.getPaymentHandler(
+            for: request.paymentMethod) else {
+            throw PaymentSDKError.failed
+        }
+        
+        return try await handler.handlePayment(request: request)
     }
 }

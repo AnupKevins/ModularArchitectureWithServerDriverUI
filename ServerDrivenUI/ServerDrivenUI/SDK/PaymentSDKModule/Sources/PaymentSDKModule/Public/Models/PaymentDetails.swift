@@ -12,13 +12,16 @@ public protocol PaymentDetails {
 public struct UPIPaymentDetails: PaymentDetails {
     public let upiId: String
     public let upiName: String
-    public let upiBankName: String
+    
+    public init(upiId: String, upiName: String) {
+        self.upiId = upiId
+        self.upiName = upiName
+    }
     
     public func toDictionary() -> [String : Any] {
         [
             "upiId": upiId,
-            "upiName": upiName,
-            "upiBankName": upiBankName
+            "upiName": upiName
         ]
     }
 }
@@ -27,6 +30,12 @@ public struct BankPaymentDetails: PaymentDetails {
     public let accountNumber: String
     public let bankName: String
     public let ifscCode: String
+    
+    public init(accountNumber: String, bankName: String, ifscCode: String) {
+        self.accountNumber = accountNumber
+        self.bankName = bankName
+        self.ifscCode = ifscCode
+    }
     
     public func toDictionary() -> [String: Any] {
         [

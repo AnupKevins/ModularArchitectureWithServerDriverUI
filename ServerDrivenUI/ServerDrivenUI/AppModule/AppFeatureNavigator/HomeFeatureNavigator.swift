@@ -28,4 +28,8 @@ final class HomeFeatureNavigatorImpl: HomeNavigator {
     func openVoiceOver() {
         router.push(route: .voiceOverRoute(.voiceOver))
     }
+    
+    func openPayment() {
+        router.presentSheet(.homeRoute(.paymentScreen))
+    }
 }

@@ -30,6 +30,15 @@ struct AppRootView: View {
                 )
             }
         }
+        .sheet(
+            item: $appRouter.presentedSheet,
+            onDismiss: {
+                // Swiftui set binding to nil
+                // so $appRouter.presentedSheet = nil  // already done
+            print("@@@ Sheet Dismiss")
+        }) { sheet in
+            appCoordinator.start(route: sheet.route)
+        }
         .environment(\.homeNavigator, HomeFeatureNavigatorImpl(router: appRouter))
     }
 }

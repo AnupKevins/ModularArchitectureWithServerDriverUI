@@ -29,7 +29,16 @@ public final class PaymentSDKBuilder {
         
         let repository = PaymentRepositoryImpl(networkClient: networkClient)
         
-        let processor = PaymentProcessor(repository: repository)
+        // 🔥 Incase of strategy pattern (no enum used) Registry setup
+        let registry = PaymentHandlerRegistry(handlers: [
+            UPIHandler(paymentRepository: repository),
+            NEFTHandler(paymentRepository: repository)
+        ])
+        
+        // For enum
+       // let processor = PaymentProcessor(repository: repository)
+        
+        let processor = PaymentProcessor(registry: registry)
         
         return PaymentSDKImpl(paymentProcessor: processor)
         

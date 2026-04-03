@@ -28,7 +28,23 @@ final class AppCoordinatorImpl: AppCoordinator {
     }
     
     private func resolve(_ route: any Hashable, notFound message: String) -> AnyView {
+        // 🔥 now the coordinator instance created if nil
         ResolverRegistry.shared.resolve(route: route)
         ?? AnyView(Text(message))
     }
 }
+/*
+AppRootView loads
+↓
+NavigationStack shows initial route
+↓
+appCoordinator.start(.homeRoute(.home))
+↓
+resolve(route.featureRoute)
+↓
+ResolverRegistry.resolve(...)
+↓
+👉 HomeFeature.registerResolver closure executes
+↓
+👉 coordinator created (if nil)
+*/

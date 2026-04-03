@@ -5,7 +5,7 @@
 //  Created by Anup Sahu on 31/03/26.
 //
 
-protocol PaymentRepository {
+protocol PaymentRepository: Sendable {
     
-    func makePayment(request: PaymentRequest) async throws -> PaymentResponse
+    func makePayment(request: PaymentRequestModel) async throws -> PaymentResponse
 }

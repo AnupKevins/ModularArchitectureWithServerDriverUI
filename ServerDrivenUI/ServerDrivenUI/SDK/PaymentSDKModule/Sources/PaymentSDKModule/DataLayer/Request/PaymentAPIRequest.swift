@@ -30,7 +30,9 @@ struct PaymentAPIRequest: APIRequest {
         var payload: [String: Any] = [
             "amount": request.amount,
             "senderId": request.senderId,
-            "type": mapType(request.paymentType)
+            "type": request.paymentMethod.type
+            // For Enum
+            // "type": mapType(request.paymentType)
         ]
         
         payload.merge(request.details.toDictionary()) { _, new in new }
@@ -45,15 +47,15 @@ struct PaymentAPIRequest: APIRequest {
         // dict1.merge(dict2) { _, new in new } “If key exists → use new value”
         // Result : ["name": "New"]
     }
-    
-    private func mapType(_ type: PaymentType) -> String {
-        switch type {
-            case .upi:
-                return "UPI"
-            case .neft:
-                return "NEFT"
-            case .rtgs:
-                return "RTGS"
-        }
-    }
+    // for Enum
+//    private func mapType(_ type: PaymentType) -> String {
+//        switch type {
+//            case .upi:
+//                return "UPI"
+//            case .neft:
+//                return "NEFT"
+//            case .rtgs:
+//                return "RTGS"
+//        }
+//    }
 }

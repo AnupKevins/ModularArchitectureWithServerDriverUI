@@ -20,4 +20,8 @@ public protocol NavigationRouting {
     
     // Deeplink
     func reset(_ routes: [Route])
+    
+    func presentSheet(_ route: Route)
+    
+    func dismissSheet()
 }

@@ -15,11 +15,17 @@ let package = Package(
             targets: ["CoreModule"]
         ),
     ],
+    dependencies: [
+        .package(path: "../PaymentSDKModule")
+    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "CoreModule"
+            name: "CoreModule",
+            dependencies: [
+                .product(name: "PaymentSDKModule", package: "PaymentSDKModule")
+            ]
         ),
 
     ]

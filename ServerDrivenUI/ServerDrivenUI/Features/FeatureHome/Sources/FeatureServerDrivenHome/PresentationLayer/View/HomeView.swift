@@ -33,6 +33,16 @@ struct HomeView<ViewModel: HomeViewModel>: View {
            Button("Navigate to Voice over") {
                homeNavigator?.openVoiceOver()
            }
+           Spacer()
+           Button("Navigate to Home Payment") {
+               // For Deeplink use Global Navigator
+               // For Simple use navigationDestination(...)
+               homeNavigator?.openPayment()
+           }
+           // For Simple use navigationDestination(...)
+//           .navigationDestination(isPresented: $showPayment) {
+//               PaymentView(...)
+//           }
         }.task {
             await viewModel.fetchHomeComponents()
         }.onChange(of: viewModel.components.count) { newValue in
