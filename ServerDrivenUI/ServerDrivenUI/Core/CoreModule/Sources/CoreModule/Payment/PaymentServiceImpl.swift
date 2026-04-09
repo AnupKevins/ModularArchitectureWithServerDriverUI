@@ -15,7 +15,7 @@ public final class PaymentServiceImpl: PaymentService {
         self.paymentSDK = paymentSDK
     }
     
-    public func pay(input: PaymentInput) async throws -> PaymentResponse {
+    public func pay(input: PaymentInput) async throws -> PaymentResult {
         
         let mapping = input.instrument.toSDK()
         
@@ -26,7 +26,22 @@ public final class PaymentServiceImpl: PaymentService {
             details: mapping.details,
             idempotencyKey: UUID().uuidString
         )
-            
-        return try await paymentSDK.pay(request: request)
+        
+        // ✅ Response from SDK
+        let sdkResponse = try await paymentSDK.pay(request: request)
+        
+        return PaymentResult(
+            transactionId: sdkResponse.transactionId,
+            status: mapStatus(sdkResponse.status)
+        )
+    }
+    
+    // 🔹 Mapper
+    private func mapStatus(_ status: PaymentStatus) -> String {
+        switch status {
+            case .success: return "success"
+            case .pending: return "pending"
+            case .failed: return "failed"
+        }
     }
 }

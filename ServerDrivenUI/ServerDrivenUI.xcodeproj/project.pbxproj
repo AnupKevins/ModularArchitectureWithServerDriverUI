@@ -37,9 +37,22 @@
 		364883202F55E0F800C3DA87 /* ServerDrivenUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ServerDrivenUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		36B1F10A2F86966600A27CC2 /* Exceptions for "ServerDrivenUI" folder in "ServerDrivenUI" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				SDK/ServerDrivenUI/SDK/PaymentSDKWithUIForPaymentSelection,
+			);
+			target = 364883032F55E0F800C3DA87 /* ServerDrivenUI */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		364883062F55E0F800C3DA87 /* ServerDrivenUI */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				36B1F10A2F86966600A27CC2 /* Exceptions for "ServerDrivenUI" folder in "ServerDrivenUI" target */,
+			);
 			path = ServerDrivenUI;
 			sourceTree = "<group>";
 		};

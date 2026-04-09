@@ -10,9 +10,16 @@ import Foundation
 public final class PaymentSDKBuilder {
     
     private let baseURL: URL
+    private var customTypes: [String] = []
     
     public init(baseURL: URL) {
         self.baseURL = baseURL
+    }
+    
+    // 🔥 Client can add Custom handlers
+    public func registerMethod(type: String) -> Self {
+        customTypes.append(type)
+        return self
     }
     
     public func build() -> PaymentSDK {
@@ -29,11 +36,19 @@ public final class PaymentSDKBuilder {
         
         let repository = PaymentRepositoryImpl(networkClient: networkClient)
         
-        // 🔥 Incase of strategy pattern (no enum used) Registry setup
-        let registry = PaymentHandlerRegistry(handlers: [
+        // Default Handlers
+        var handlers: [PaymentHandler] = [
             UPIHandler(paymentRepository: repository),
             NEFTHandler(paymentRepository: repository)
-        ])
+        ]
+        
+        // 🔥 Add CustomHandler
+        handlers += customTypes.map {
+            CustomPaymentHandler(repository: repository, methodType: $0)
+        }
+        
+        // 🔥 Incase of strategy pattern (no enum used) Registry setup
+        let registry = PaymentHandlerRegistry(handlers: handlers)
         
         // For enum
        // let processor = PaymentProcessor(repository: repository)

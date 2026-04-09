@@ -8,5 +8,4 @@
 public struct NEFTPaymentMethod: PaymentMethod {
     public let type: String = "NEFT"
     public init() {}
-
 }

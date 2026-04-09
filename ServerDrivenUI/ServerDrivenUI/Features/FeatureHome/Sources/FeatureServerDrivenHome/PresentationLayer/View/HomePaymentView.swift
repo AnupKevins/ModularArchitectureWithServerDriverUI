@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomePaymentView<ViewModel: HomePaymentViewModel>: View {
     
-    @State private var viewModel: HomePaymentViewModel
+    @State private var viewModel: ViewModel
     @State private var task: Task<Void, Never>?
     
     init(viewModel: ViewModel) {
@@ -45,14 +45,13 @@ struct HomePaymentView<ViewModel: HomePaymentViewModel>: View {
             }
             .disabled(viewModel.isLoading)
             .buttonStyle(.borderedProminent)
+            .frame(width: 100)
             
             Text(viewModel.statusText)
                 .foregroundColor(.gray)
                 .multilineTextAlignment(.center)
-            
             Spacer()
         }
-        .padding()
         .onDisappear {
             task?.cancel()
         }

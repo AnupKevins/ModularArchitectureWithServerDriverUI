@@ -9,5 +9,5 @@
 import PaymentSDKModule
 
 public protocol PaymentService: Sendable {
-    func pay(input: PaymentInput) async throws -> PaymentResponse
+    func pay(input: PaymentInput) async throws -> PaymentResult
 }

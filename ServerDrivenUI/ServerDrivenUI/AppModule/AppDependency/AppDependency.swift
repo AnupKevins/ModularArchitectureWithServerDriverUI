@@ -34,7 +34,8 @@ final class AppDependency {
         // 🔥 Payment SDK Creation
         let paymentSDK = PaymentSDKBuilder(
             baseURL: environment.baseURL
-        ).build()
+        ).registerMethod(type: "WALLET")
+        .build()
         
         self.paymentService = PaymentServiceImpl(
             paymentSDK: paymentSDK

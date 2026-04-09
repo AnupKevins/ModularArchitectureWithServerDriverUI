@@ -38,12 +38,24 @@ final class HomePaymentViewModelImpl: HomePaymentViewModel {
             return
         }
         
-        let paymentInput = PaymentInput(
+        // UPI
+        /*let paymentInput = PaymentInput(
             senderId: "UserId123",
             amount: amount,
             instrument: UPIInstrument(
                 upiId: "abc@upi.com", upiName: "John"
             )
+        )*/
+        
+        let customPaymentInput = PaymentInput(
+            senderId: "customUser123",
+            amount: amount,
+            instrument: GenericPaymentInstrument(
+                methodType: "WALLET",
+                metaData: [
+                    "walletId": "paytm",
+                    "phoneNumber": "7890123456"
+            ])
         )
         
         self.isLoading = true
@@ -53,7 +65,7 @@ final class HomePaymentViewModelImpl: HomePaymentViewModel {
         }
         
         do {
-            let response = try await paymentSDKService.pay(input: paymentInput)
+            let response = try await paymentSDKService.pay(input: customPaymentInput)
             // task.cancel() → send stop signal
             // Task.isCancelled → check if stop signal received
             // UI may update next line even after:
