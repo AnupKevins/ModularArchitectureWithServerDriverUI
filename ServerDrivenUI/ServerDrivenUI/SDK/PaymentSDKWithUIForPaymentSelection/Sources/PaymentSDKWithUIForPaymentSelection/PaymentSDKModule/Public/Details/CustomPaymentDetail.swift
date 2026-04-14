@@ -7,13 +7,27 @@
 
 public struct CustomPaymentDetail: PaymentDetails {
     
-    private let payload: [String: Any]
+    private let payload: [String: JSONValue]
     
-    public init(payload: [String : Any]) {
+    public init(payload: [String : JSONValue]) {
         self.payload = payload
     }
     
     public func toDictionary() -> [String : Any] {
-        return payload
+        return payload.mapValues { $0.toAny() }
     }
+    
+    /*
+     let payload: [String: JSONValue] = [
+        "name": .string("John"),
+        "age": .int(30)
+    ]
+    
+    After mapValues
+    
+    [
+        "name": "John",
+        "age": 30
+    ]
+    */
 }

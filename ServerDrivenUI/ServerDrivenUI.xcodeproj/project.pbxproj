@@ -11,6 +11,8 @@
 		364883562F574A2600C3DA87 /* ServerDrivenEngine in Frameworks */ = {isa = PBXBuildFile; productRef = 364883552F574A2600C3DA87 /* ServerDrivenEngine */; };
 		364883E32F584B6100C3DA87 /* CoreModule in Frameworks */ = {isa = PBXBuildFile; productRef = 364883E22F584B6100C3DA87 /* CoreModule */; };
 		364883E52F584DF200C3DA87 /* FeatureProducts in Frameworks */ = {isa = PBXBuildFile; productRef = 364883E42F584DF200C3DA87 /* FeatureProducts */; };
+		36A827C32F8ACB1900CFBA77 /* PaymentSDKWithUIForPaymentSelection in Frameworks */ = {isa = PBXBuildFile; productRef = 36A827C22F8ACB1900CFBA77 /* PaymentSDKWithUIForPaymentSelection */; };
+		36A827C52F8ACB1F00CFBA77 /* PaymentSDKModule in Frameworks */ = {isa = PBXBuildFile; productRef = 36A827C42F8ACB1F00CFBA77 /* PaymentSDKModule */; };
 		36D53DDD2F72F1CC004FFE44 /* FeatureVoiceOver in Frameworks */ = {isa = PBXBuildFile; productRef = 36D53DDC2F72F1CC004FFE44 /* FeatureVoiceOver */; };
 /* End PBXBuildFile section */
 
@@ -37,22 +39,9 @@
 		364883202F55E0F800C3DA87 /* ServerDrivenUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ServerDrivenUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		36B1F10A2F86966600A27CC2 /* Exceptions for "ServerDrivenUI" folder in "ServerDrivenUI" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				SDK/ServerDrivenUI/SDK/PaymentSDKWithUIForPaymentSelection,
-			);
-			target = 364883032F55E0F800C3DA87 /* ServerDrivenUI */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		364883062F55E0F800C3DA87 /* ServerDrivenUI */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				36B1F10A2F86966600A27CC2 /* Exceptions for "ServerDrivenUI" folder in "ServerDrivenUI" target */,
-			);
 			path = ServerDrivenUI;
 			sourceTree = "<group>";
 		};
@@ -73,10 +62,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36A827C52F8ACB1F00CFBA77 /* PaymentSDKModule in Frameworks */,
 				364883512F56F20000C3DA87 /* FeatureHome in Frameworks */,
 				364883E32F584B6100C3DA87 /* CoreModule in Frameworks */,
 				364883562F574A2600C3DA87 /* ServerDrivenEngine in Frameworks */,
 				364883E52F584DF200C3DA87 /* FeatureProducts in Frameworks */,
+				36A827C32F8ACB1900CFBA77 /* PaymentSDKWithUIForPaymentSelection in Frameworks */,
 				36D53DDD2F72F1CC004FFE44 /* FeatureVoiceOver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +142,8 @@
 				364883E22F584B6100C3DA87 /* CoreModule */,
 				364883E42F584DF200C3DA87 /* FeatureProducts */,
 				36D53DDC2F72F1CC004FFE44 /* FeatureVoiceOver */,
+				36A827C22F8ACB1900CFBA77 /* PaymentSDKWithUIForPaymentSelection */,
+				36A827C42F8ACB1F00CFBA77 /* PaymentSDKModule */,
 			);
 			productName = ServerDrivenUI;
 			productReference = 364883042F55E0F800C3DA87 /* ServerDrivenUI.app */;
@@ -630,6 +623,14 @@
 		364883E42F584DF200C3DA87 /* FeatureProducts */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FeatureProducts;
+		};
+		36A827C22F8ACB1900CFBA77 /* PaymentSDKWithUIForPaymentSelection */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PaymentSDKWithUIForPaymentSelection;
+		};
+		36A827C42F8ACB1F00CFBA77 /* PaymentSDKModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PaymentSDKModule;
 		};
 		36D53DDC2F72F1CC004FFE44 /* FeatureVoiceOver */ = {
 			isa = XCSwiftPackageProductDependency;

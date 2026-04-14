@@ -15,20 +15,40 @@ protocol HomePaymentViewModel {
     var isLoading: Bool { get }
     
     func makePayment() async
+    func makePaymentWithUI() async
 }
 
 @Observable
 final class HomePaymentViewModelImpl: HomePaymentViewModel {
     
     private let paymentSDKService: PaymentService
+    private let paymentUIService: PaymentUIService
     private var task: Task<Void, Never>?
     
     var statusText: String = ""
     var amountText: String = ""
     var isLoading: Bool = false
     
-    init(paymentSDKService: PaymentService) {
+    init(paymentSDKService: PaymentService, paymentUIService: PaymentUIService) {
         self.paymentSDKService = paymentSDKService
+        self.paymentUIService = paymentUIService
+    }
+    
+    func makePaymentWithUI() async {
+        guard let amount = Double(amountText), amount > 0 else {
+            statusText = "Invalid amount"
+            return
+        }
+        
+        
+        do {
+            // 🔥 UI-driven payment flow
+            let result = try await paymentUIService.pay(amount: amount)
+            
+            statusText = "Success: \(result.transactionId)"
+        } catch {
+            statusText = "Failed: \(error.localizedDescription)"
+        }
     }
     
     func makePayment() async {

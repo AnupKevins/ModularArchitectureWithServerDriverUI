@@ -40,12 +40,28 @@ struct HomePaymentView<ViewModel: HomePaymentViewModel>: View {
                 if viewModel.isLoading {
                     ProgressView()
                 } else {
-                    Text("Pay").frame(maxWidth: .infinity)
+                    Text("Pay Without UI").frame(maxWidth: .infinity)
                 }
             }
             .disabled(viewModel.isLoading)
             .buttonStyle(.borderedProminent)
-            .frame(width: 100)
+            .frame(width: 200)
+            
+            // Pay Button
+            Button {
+                
+                task?.cancel()
+                task = Task {
+                    await viewModel.makePaymentWithUI()
+                }
+            } label: {
+                
+                Text("Pay With UI").frame(maxWidth: .infinity)
+                
+            }
+            .disabled(viewModel.isLoading)
+            .buttonStyle(.borderedProminent)
+            .frame(width: 200)
             
             Text(viewModel.statusText)
                 .foregroundColor(.gray)

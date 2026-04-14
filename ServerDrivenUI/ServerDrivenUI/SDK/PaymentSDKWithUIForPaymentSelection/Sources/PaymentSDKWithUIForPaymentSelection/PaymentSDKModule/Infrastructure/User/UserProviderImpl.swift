@@ -5,11 +5,11 @@
 //  Created by Anup Sahu on 09/04/26.
 //
 
-struct UserProviderImpl: UserProvider {
+public struct UserProviderImpl: UserProvider {
     
-    let userId: String
+    public let userId: String
     
-    init(userId: String) {
+    public init(userId: String) {
         self.userId = userId
     }
 }

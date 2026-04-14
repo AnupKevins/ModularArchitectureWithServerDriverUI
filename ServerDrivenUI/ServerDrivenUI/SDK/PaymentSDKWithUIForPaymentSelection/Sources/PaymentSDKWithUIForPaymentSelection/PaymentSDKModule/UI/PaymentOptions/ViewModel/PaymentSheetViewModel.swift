@@ -13,7 +13,7 @@ final class PaymentSheetViewModel {
     
     var options: [PaymentOption] = []
     var isLoading: Bool = false
-    
+    // Stored Closure property
     var onSelect: ((PaymentOption) -> Void)?
     
     func loadOptions() async {

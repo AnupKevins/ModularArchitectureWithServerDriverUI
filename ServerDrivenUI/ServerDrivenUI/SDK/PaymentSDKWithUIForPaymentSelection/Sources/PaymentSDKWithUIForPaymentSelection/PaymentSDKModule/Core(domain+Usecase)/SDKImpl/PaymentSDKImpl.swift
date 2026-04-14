@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class PaymentSDKImpl: PaymentSDK {
+final class PaymentSDKImpl: PaymentSDKWithUI {
     
     private let paymentProcessor: PaymentProcessor
     private let idempotencyStore: IdempotencyStore

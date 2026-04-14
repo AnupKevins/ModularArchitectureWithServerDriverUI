@@ -12,6 +12,7 @@ import FeatureProducts
 import FeatureVoiceOver
 import UIKit
 import PaymentSDKModule
+import PaymentSDKWithUIForPaymentSelection
 
 final class AppDependency {
     
@@ -19,26 +20,45 @@ final class AppDependency {
     private let router: AppRouter<AppRoute>
     let imageLoader: ImageLoader
     private let cache: MemoryCache<URL, UIImage>
-    private let paymentService: PaymentService
+    private let environment: AppEnvironment
+    
+    // 🔥 Lazy Payment SDK Creation
+    private lazy var paymentSDK: PaymentSDK = {
+        PaymentSDKBuilder(
+            baseURL: environment.baseURL
+        ).registerMethod(type: "WALLET")
+            .build()
+    }()
+    
+    private lazy var paymentSDKBuilderWithPaymentUI: PaymentSDKWithUI = {
+        PaymentSDKBuilderWithPaymentUI(
+            baseURL: environment.baseURL
+        ).setUserProvider(UserProviderImpl(userId: "12345"))
+            .setPresenter(PaymentPresenterImpl())
+            .build()
+    }()
+    
+    private lazy var paymentService: PaymentService = {
+        PaymentServiceImpl(
+            paymentSDK: paymentSDK
+        )
+    }()
+    
+    private lazy var paymentUIService: PaymentUIService = {
+        PaymentUIServiceImpl(
+            paymentSDK: paymentSDKBuilderWithPaymentUI
+        )
+    }()
     
     init(
         environment: AppEnvironment,
         router: AppRouter<AppRoute>,
     ) {
+        self.environment = environment
         
         self.apiClient = ApiClientImpl(
             session: .shared,
             baseUrl: environment.baseURL
-        )
-        
-        // 🔥 Payment SDK Creation
-        let paymentSDK = PaymentSDKBuilder(
-            baseURL: environment.baseURL
-        ).registerMethod(type: "WALLET")
-        .build()
-        
-        self.paymentService = PaymentServiceImpl(
-            paymentSDK: paymentSDK
         )
         
         self.router = router
@@ -55,7 +75,11 @@ final class AppDependency {
     }()
     
     private func registerFeatureResolvers() {
-        HomeFeature.registerResolver(apiClient: apiClient, paymentService: paymentService)
+        HomeFeature.registerResolver(
+            apiClient: apiClient,
+            paymentService: paymentService,
+            paymentUIService: paymentUIService
+        )
         
         ProductFeature.registerResolver(apiClient: apiClient)
         

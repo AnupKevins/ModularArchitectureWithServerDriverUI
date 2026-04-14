@@ -56,6 +56,22 @@ final class NetworkClientImpl: NetworkClient {
         var urlRequest = try request.makeURLRequest(baseURL: baseURL)
         
         // Apply Interceptors to add token
+        // AuthInterceptor → “Are you logged in?”
+        // Backend authentication and dont need in UPI
+        //        Selector
+        //        ↓
+        //        Authenticator (UPI)
+        //        ↓
+        //        App switch → UPI app
+        //        ↓
+        //        User authenticates (PIN)
+        //        ↓
+        //        Return to app
+        //        ↓
+        //        Repository → verify status (AuthInterceptor used here)
+        //        ↓
+        //        Processor → response
+
         for interceptor in interceptors {
             try await interceptor.intercept(&urlRequest)
         }

@@ -12,16 +12,25 @@ public enum HomeFeature {
     @MainActor
     private static func makeCoordinator(
         apiClient: APIClient,
-        paymentService: PaymentService
+        paymentService: PaymentService,
+        paymentUIService: PaymentUIService
     ) -> HomeCoordinator {
         
-        let builder = HomeFeatureBuilderImpl(apiClient: apiClient, paymentService: paymentService)
+        let builder = HomeFeatureBuilderImpl(
+            apiClient: apiClient,
+            paymentService: paymentService,
+            paymentUIService: paymentUIService
+        )
         return HomeCoordinatorImpl(homeBuilder: builder)
         
     }
     
     @MainActor
-    public static func registerResolver(apiClient: APIClient, paymentService: PaymentService) {
+    public static func registerResolver(
+        apiClient: APIClient,
+        paymentService: PaymentService,
+        paymentUIService: PaymentUIService
+    ) {
         
         var coordinator: HomeCoordinator?
         
@@ -30,7 +39,8 @@ public enum HomeFeature {
             if coordinator == nil {
                 coordinator = makeCoordinator(
                     apiClient: apiClient,
-                    paymentService: paymentService
+                    paymentService: paymentService,
+                    paymentUIService: paymentUIService
                 )
             }
             

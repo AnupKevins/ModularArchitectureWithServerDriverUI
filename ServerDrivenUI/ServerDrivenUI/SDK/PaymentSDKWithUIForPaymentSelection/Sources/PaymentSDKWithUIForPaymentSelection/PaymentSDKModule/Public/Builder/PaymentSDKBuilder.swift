@@ -7,11 +7,13 @@
 
 import Foundation
 
-public final class PaymentSDKBuilder {
+@MainActor
+public final class PaymentSDKBuilderWithPaymentUI {
     
     private let baseURL: URL
     private var customTypes: [String] = []
     private var userProvider: UserProvider?
+    private var presenter: PaymentPresenter?
     
     public init(baseURL: URL) {
         self.baseURL = baseURL
@@ -28,7 +30,13 @@ public final class PaymentSDKBuilder {
         return self
     }
     
-    public func build() -> PaymentSDK {
+    // ✅ New: Presenter Injection
+    public func setPresenter(_ presenter: PaymentPresenter) -> Self {
+        self.presenter = presenter
+        return self
+    }
+    
+    public func build() -> PaymentSDKWithUI {
         
         guard let userProvider else {
             fatalError("UserProvider must be set before PaymentSDK")
@@ -62,11 +70,26 @@ public final class PaymentSDKBuilder {
         let registry = PaymentHandlerRegistry(handlers: handlers)
         
         // For enum
-       // let processor = PaymentProcessor(repository: repository)
+        // let processor = PaymentProcessor(repository: repository)
         
         let processor = PaymentProcessor(registry: registry)
         
-        return PaymentSDKImpl(paymentProcessor: processor)
+        // 🔥 Selector with ViewModel factory
+        guard let presenter else {
+            fatalError("Presenter must be set before PaymentSDK")
+        }
+        let selector = PaymentMethodSelectorImpl(
+            presenter: presenter,
+            viewModelFactory: {
+                PaymentSheetViewModel()
+            }
+        )
+        
+        return PaymentSDKImpl(
+            paymentProcessor: processor,
+            selector: selector,
+            userProvider: userProvider
+        )
         
     }
     

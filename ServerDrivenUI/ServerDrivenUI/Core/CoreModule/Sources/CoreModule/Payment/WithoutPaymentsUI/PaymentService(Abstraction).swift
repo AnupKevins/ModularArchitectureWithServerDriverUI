@@ -6,7 +6,6 @@
 //
 
 // ✅“SharedModule is for utilities, CoreModule is for business abstractions.”
-import PaymentSDKModule
 
 public protocol PaymentService: Sendable {
     func pay(input: PaymentInput) async throws -> PaymentResult

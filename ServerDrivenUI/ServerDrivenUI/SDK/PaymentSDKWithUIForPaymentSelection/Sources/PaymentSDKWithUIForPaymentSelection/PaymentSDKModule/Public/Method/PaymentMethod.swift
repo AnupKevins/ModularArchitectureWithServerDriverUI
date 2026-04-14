@@ -20,7 +20,7 @@
 //↓
 //Registry (lookup)
 
-public protocol PaymentMethod {
+public protocol PaymentMethod: Sendable {
     var type: String { get }
 }
 

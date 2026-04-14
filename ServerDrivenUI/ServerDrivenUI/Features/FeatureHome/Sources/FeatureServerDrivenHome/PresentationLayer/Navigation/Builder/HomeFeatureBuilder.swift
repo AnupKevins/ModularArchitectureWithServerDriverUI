@@ -18,10 +18,12 @@ protocol HomeFeatureBuilder {
 final class HomeFeatureBuilderImpl: HomeFeatureBuilder {
     private let apiClient: APIClient
     private let paymentService: PaymentService
+    private let paymentUIService: PaymentUIService
     
-    init(apiClient: APIClient, paymentService: PaymentService) {
+    init(apiClient: APIClient, paymentService: PaymentService, paymentUIService: PaymentUIService) {
         self.apiClient = apiClient
         self.paymentService = paymentService
+        self.paymentUIService = paymentUIService
     }
     
     func makeHome() -> AnyView {
@@ -39,7 +41,7 @@ final class HomeFeatureBuilderImpl: HomeFeatureBuilder {
     
     func makePayment() -> AnyView {
                 
-        let viewModel = HomePaymentViewModelImpl(paymentSDKService: paymentService)
+        let viewModel = HomePaymentViewModelImpl(paymentSDKService: paymentService, paymentUIService: paymentUIService)
         
         let paymentView = HomePaymentView(viewModel: viewModel)
         
