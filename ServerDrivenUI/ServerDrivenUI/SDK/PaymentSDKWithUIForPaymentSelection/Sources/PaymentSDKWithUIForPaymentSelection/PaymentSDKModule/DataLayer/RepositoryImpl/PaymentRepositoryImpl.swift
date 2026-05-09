@@ -28,6 +28,15 @@ final class PaymentRepositoryImpl: PaymentRepository {
         
     }
     
+    func validateWalletOTP(otp: String) async throws -> String {
+        // simulate API
+        guard otp == "1234" else {
+            throw PaymentSDKError.authenticationFailed
+        }
+        
+        return "secure_token_123"
+    }
+    
     private func mapStatus(_ status: String) -> PaymentStatus {
         switch status {
             case "success":

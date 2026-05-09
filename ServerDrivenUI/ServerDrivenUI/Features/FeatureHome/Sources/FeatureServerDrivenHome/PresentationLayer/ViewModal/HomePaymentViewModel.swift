@@ -43,11 +43,11 @@ final class HomePaymentViewModelImpl: HomePaymentViewModel {
         
         do {
             // 🔥 UI-driven payment flow
-            let result = try await paymentUIService.pay(amount: amount)
+            let result = try await paymentUIService.startPayment(amount: amount)
             
-            statusText = "Success: \(result.transactionId)"
+            statusText = "Success For SDK UI: \(result.transactionId)"
         } catch {
-            statusText = "Failed: \(error.localizedDescription)"
+            statusText = "Failed For SDK UI: \(error.localizedDescription)"
         }
     }
     

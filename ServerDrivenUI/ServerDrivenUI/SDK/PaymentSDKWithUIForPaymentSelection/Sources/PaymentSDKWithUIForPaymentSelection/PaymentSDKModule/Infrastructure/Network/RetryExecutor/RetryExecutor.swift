@@ -1,12 +1,6 @@
-//
-//  RetryExecutor.swift
-//  PaymentSDKModule
-//
-//  Created by Anup Sahu on 01/04/26.
-//
-
 import Foundation
 
+/// Handles retry logic for any async task
 protocol RetryExecutor: Sendable {
     func execute<T>(
         _ makeAPICallBlock: @escaping () async throws -> T
@@ -25,39 +19,48 @@ final class RetryExecutorImpl: RetryExecutor {
         _ makeAPICallBlock: @escaping () async throws -> T
     ) async throws -> T {
         
+        /// Tracks how many attempts have been made
         var attempt = 0
         
         while true {
             
             do {
-                // if api call gave success then return on first attempt
-                // if error goes on catch
-                return try await makeAPICallBlock() // 2
+                /// 🔥 Step 2: Execute API call
+                /// If success → immediately return result
+                return try await makeAPICallBlock()
+                
             } catch {
                 
+                /// 🔥 Step 3: Failure occurred → increment attempt count
                 attempt += 1
                 
+                /// If exceeded max retries → propagate error
                 if attempt > policy.maxRetries {
                     throw error
                 }
                 
+                /// 🔥 Step 4: Compute exponential backoff delay
                 let delay = computeDelay(for: attempt)
                 
-                let ns = UInt64(delay * 1_000_000_000) // nanoseconds
-                // 1 second = 1,000,000,000 nanoseconds (10⁹)
+                /// Convert seconds → nanoseconds
+                /// Task.sleep expects nanoseconds for precision
+                let ns = UInt64(delay * 1_000_000_000)
                 
+                /// 🔥 Step 5: Wait before retrying
                 try await Task.sleep(nanoseconds: ns)
-                // Why not use seconds directly?
                 
-                // Because Task.sleep is designed for precision, not convenience.
+                /// Loop continues → retry again
             }
         }
     }
-      
+    
+    /// 🔥 Exponential backoff formula
+    /// delay = baseDelay * multiplier^(attempt-1)
     private func computeDelay(for attempt: Int) -> TimeInterval {
-        // delay = 0.5 * 2^1
+        
         let delay = policy.baseDelay * pow(policy.multiplier, Double(attempt - 1))
         
+        /// Cap delay to avoid infinite growth
         return min(delay, policy.maxDelay)
     }
 }

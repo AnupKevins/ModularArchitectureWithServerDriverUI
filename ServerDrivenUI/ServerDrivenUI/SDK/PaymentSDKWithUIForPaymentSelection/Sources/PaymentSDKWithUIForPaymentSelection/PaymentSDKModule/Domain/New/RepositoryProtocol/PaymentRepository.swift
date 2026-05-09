@@ -1,0 +1,13 @@
+//
+//  PaymentRepository.swift
+//  PaymentSDKModule
+//
+//  Created by Anup Sahu on 31/03/26.
+//
+
+protocol PaymentRepository: Sendable {
+    
+    func makePayment(request: PaymentRequestModel) async throws -> PaymentResponse
+    
+    func validateWalletOTP(otp: String) async throws -> String
+}

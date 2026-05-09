@@ -8,6 +8,6 @@ import Foundation
 // In SDK
 // Client → SDK Public API → Core → Data Layer
 
-public protocol PaymentSDKWithUI: Sendable {
-    func startPayment(amount: Double) async throws -> PaymentResponse
-}
+//public protocol PaymentSDKWithUI: Sendable {
+//    func startPayment(amount: Double) async throws -> PaymentResponse
+//}

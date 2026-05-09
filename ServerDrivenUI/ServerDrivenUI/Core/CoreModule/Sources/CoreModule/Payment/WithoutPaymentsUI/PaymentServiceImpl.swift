@@ -4,7 +4,10 @@
 //
 //  Created by Anup Sahu on 02/04/26.
 //
-import PaymentSDKModule
+/// CoreModule → SDK ❌ (wrong direction)
+/// Feature → Core → App → SDK
+/// “CoreModule should only define abstractions. The implementation that depends on SDK belongs to the composition root (App layer), not Core.”
+import PaymentSDKModule /// this is wrong direction, CoreModule should not depend on SDK, but for the sake of this example, we are doing it to show how to implement the service. In real scenario, we should define an abstraction in CoreModule and implement it in App layer which depends on SDK.
 import Foundation
 
 public final class PaymentServiceImpl: PaymentService {

@@ -23,6 +23,7 @@ final class AppDependency {
     private let environment: AppEnvironment
     
     // 🔥 Lazy Payment SDK Creation
+    /// For PaymentSDKModule WithoutUI
     private lazy var paymentSDK: PaymentSDK = {
         PaymentSDKBuilder(
             baseURL: environment.baseURL
@@ -30,24 +31,36 @@ final class AppDependency {
             .build()
     }()
     
-    private lazy var paymentSDKBuilderWithPaymentUI: PaymentSDKWithUI = {
-        PaymentSDKBuilderWithPaymentUI(
-            baseURL: environment.baseURL
-        ).setUserProvider(UserProviderImpl(userId: "12345"))
-            .setPresenter(PaymentPresenterImpl())
-            .build()
-    }()
-    
+    /// For PaymentSDKModule WithoutUI
     private lazy var paymentService: PaymentService = {
         PaymentServiceImpl(
             paymentSDK: paymentSDK
         )
     }()
     
-    private lazy var paymentUIService: PaymentUIService = {
-        PaymentUIServiceImpl(
-            paymentSDK: paymentSDKBuilderWithPaymentUI
+    /// For PaymentSDKWithUIForPaymentSelection Provider
+    private lazy var paymentMethodsProvider: PaymentMethodsProvider = {
+        AppPaymentMethodsProvider(apiClient: apiClient)
+    }()
+    
+    /// For PaymentSDKWithUIForPaymentSelection UI Service
+    private lazy var PaymentUIService: PaymentSDKUIService = {
+        
+        let config = PaymentUIConfig(
+            baseURL: environment.baseURL,
+            userProvider: UserProviderImpl(userId: "12345"),
+            methodsProvider: paymentMethodsProvider
         )
+        
+        return PaymentSDKFactory.makeUIService(config: config)
+    }()
+    
+    /// 🔥 Adapter (Core Absreation for PaymentSDKWithUIForPaymentSelection)
+    /// This allows us to use PaymentUIService as a PaymentUIService in our app, without exposing the entire SDK to the app layer.
+    /// IN CORE MODULE
+    
+    private lazy var paymentUIService: PaymentUIService = {
+        PaymentUIServiceAdapter(sdkService: PaymentUIService)
     }()
     
     init(
