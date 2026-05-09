@@ -55,7 +55,7 @@ final class AppDependency {
         return PaymentSDKFactory.makeUIService(config: config)
     }()
     
-    /// 🔥 Adapter (Core Absreation for PaymentSDKWithUIForPaymentSelection)
+    /// 🔥 Adapter (Core Abstration for PaymentSDKWithUIForPaymentSelection)
     /// This allows us to use PaymentUIService as a PaymentUIService in our app, without exposing the entire SDK to the app layer.
     /// IN CORE MODULE
     
