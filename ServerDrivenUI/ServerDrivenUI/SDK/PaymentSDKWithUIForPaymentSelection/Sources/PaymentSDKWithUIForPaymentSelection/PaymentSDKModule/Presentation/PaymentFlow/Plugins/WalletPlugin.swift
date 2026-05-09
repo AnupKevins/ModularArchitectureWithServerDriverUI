@@ -42,7 +42,7 @@ final class WalletPlugin: PaymentMethodPlugin {
 }
 
 extension WalletPlugin {
-    
+    @MainActor
     private func collectOtp() async throws -> String {
         
         /// 🔥 guard to ensure resume only once

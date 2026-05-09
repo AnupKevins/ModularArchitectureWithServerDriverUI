@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 @MainActor
-public protocol PaymentPresenter {
+public protocol PaymentPresenter: Sendable {
     func presentPaymentSheet(_ controller: UIViewController)
     func dismissPaymentSheet(completion: @escaping () -> Void)
 }

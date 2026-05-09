@@ -5,8 +5,7 @@
 //  Created by Anup Sahu on 21/04/26.
 //
 
-@MainActor
-protocol PaymentMethodPlugin {
+protocol PaymentMethodPlugin: Sendable {
     var type: String { get }
     
     var displayName: String { get }
